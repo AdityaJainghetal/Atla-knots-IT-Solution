@@ -1,272 +1,3 @@
-// // import React, { useState } from "react";
-// // import { NavLink } from "react-router-dom";
-// // import { Menu, X, ChevronDown } from "lucide-react";
-// // import ATLAknots from "./Mobile/img/ITLogo.png";
-
-// // const navItems = [
-// //   { name: "Home", path: "/" },
-
-// //   {
-// //     name: "About",
-// //     path: "/about",
-// //     hasDropdown: true,
-// //     dropdownItems: [
-// //       { name: "Recent Work", path: "/recentwork" },
-// //       { name: "Gallery", path: "/gallery" },
-// //     ],
-// //   },
-
-// //   {
-// //     name: "Service",
-// //     path: "/service",
-// //     hasDropdown: true,
-// //     dropdownItems: [
-// //       {
-// //         name: "Digital Marketing",
-// //         path: "/digital-marketing",
-// //         hasDropdown: true,
-// //         dropdownItems: [
-// //           { name: "SEO Services", path: "/seo" },
-// //           { name: "Social Media Marketing", path: "/socialmediamarketing" },
-// //           { name: "Paid Advertisement", path: "/paidadv" },
-// //           { name: "Graphic design", path: "/graphicdesign" },
-// //           { name: "Local Marketing", path: "/localmarketing" },
-// //         ],
-// //       },
-// //       {
-// //         name: "Development",
-// //         path: "/software",
-// //         hasDropdown: true,
-// //         dropdownItems: [
-
-// //           { name: "Software development", path: "/software" },
-// //           { name: "Mobile App development", path: "/mobiledevelopment" },
-// //           { name: "E-commerce", path: "/ecommercedevelopment" },
-// //           { name: "Custom ERP Software", path: "/erpdevelopment" },
-// //           { name: "Cloud Services", path: "/cloudsolutions" },
-// //           { name: "AI & Machine Learning", path: "/ai-mlservice" },
-// //         ],
-// //       },
-
-// //         { name: "Design",
-// //         path: "/graphics" ,
-// //          hasDropdown: true,
-// //         dropdownItems: [
-// //           { name: "UI/UX Design", path: "/uidesign" },
-// //           { name: "Web Design & Development", path: "/websitedesigndevelopment" },
-
-// //           { name: "Branding", path: "/contentwritingbranding" },
-
-// //         ],
-// //       },
-// //     ],
-// //   },
-
-// //   { name: "Blog", path: "/blog" },
-// //   { name: "Careers", path: "/careers" },
-// //   { name: "Technology", path: "/technology" },
-// //   { name: "Tech News", path: "/technews" },
-// //   { name: "Contact", path: "/contact" },
-// // ];
-
-// // export default function Navbar() {
-// //   const [isOpen, setIsOpen] = useState(false);
-// //   const [openDropdown, setOpenDropdown] = useState(null);
-// //   const [openSubDropdown, setOpenSubDropdown] = useState(null);
-
-// //   const toggleMenu = () => setIsOpen(!isOpen);
-
-// //   const closeAll = () => {
-// //     setIsOpen(false);
-// //     setOpenDropdown(null);
-// //     setOpenSubDropdown(null);
-// //   };
-
-// //   return (
-// //     <nav className="bg-black/90 border-b border-gray-800 sticky top-0 z-50">
-// //       <div className="max-w-7xl mx-auto px-5">
-// //         <div className="flex justify-between items-center h-20">
-// //           {/* LOGO */}
-// //           <NavLink to="/" onClick={closeAll}>
-// //             {/* <img src={ATLAknots} alt="Logo" className="h-12 object-contain" /> */}
-// //           <img
-// //   src={ATLAknots}
-// //   alt="ATLAKnots Logo"
-// //   className="h-12 w-auto md:h-12 lg:h-18 object-contain"
-// // />
-// //           </NavLink>
-
-// //           {/* DESKTOP MENU */}
-// //           <div className="hidden md:flex items-center gap-1">
-// //             {navItems.map((item) => (
-// //               <div key={item.name} className="relative group">
-// //                 <NavLink
-// //                   to={item.path}
-// //                   className="px-4 py-5 text-gray-200 hover:text-red-400 flex items-center gap-1.5 transition-colors duration-150"
-// //                 >
-// //                   {item.name}
-// //                   {item.hasDropdown && (
-// //                     <ChevronDown
-// //                       size={16}
-// //                       className="group-hover:rotate-180 transition-transform duration-200"
-// //                     />
-// //                   )}
-// //                 </NavLink>
-
-// //                 {/* FIRST LEVEL DROPDOWN */}
-// //                 {item.hasDropdown && (
-// //                   <div
-// //                     className="
-// //                       absolute left-0 top-full pt-2
-// //                       w-56 bg-black/95 border border-gray-700 rounded-lg shadow-xl
-// //                       opacity-0 scale-95 pointer-events-none
-// //                       group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto
-// //                       transition-all duration-200 ease-out
-// //                     "
-// //                   >
-// //                     {item.dropdownItems.map((sub) => (
-// //                       <div key={sub.name} className="relative group/sub">
-// //                         <NavLink
-// //                           to={sub.path}
-// //                           className="flex justify-between items-center px-4 py-2.5 text-gray-200 hover:bg-red-900/40 transition-colors duration-150"
-// //                         >
-// //                           {sub.name}
-// //                           {sub.hasDropdown && (
-// //                             <ChevronDown
-// //                               size={14}
-// //                               className="rotate-[-90deg] group-hover/sub:rotate-[-270deg] transition-transform duration-200"
-// //                             />
-// //                           )}
-// //                         </NavLink>
-
-// //                         {/* SECOND LEVEL DROPDOWN */}
-// //                         {sub.hasDropdown && (
-// //                           <div
-// //                             className="
-// //                               absolute left-full top-0 ml-1 w-52
-// //                               bg-black/95 border border-gray-700 rounded-lg shadow-xl
-// //                               opacity-0 scale-95 pointer-events-none
-// //                               group-hover/sub:opacity-100 group-hover/sub:scale-100 group-hover/sub:pointer-events-auto
-// //                               transition-all duration-200 ease-out
-// //                             "
-// //                           >
-// //                             {sub.dropdownItems.map((child) => (
-// //                               <NavLink
-// //                                 key={child.path}
-// //                                 to={child.path}
-// //                                 className="block px-4 py-2.5 text-gray-200 hover:bg-red-900/40 transition-colors duration-150"
-// //                               >
-// //                                 {child.name}
-// //                               </NavLink>
-// //                             ))}
-// //                           </div>
-// //                         )}
-// //                       </div>
-// //                     ))}
-// //                   </div>
-// //                 )}
-// //               </div>
-// //             ))}
-// //           </div>
-
-// //           {/* MOBILE BUTTON */}
-// //           <div className="md:hidden">
-// //             <button onClick={toggleMenu}>
-// //               {isOpen ? <X size={28} /> : <Menu size={28} />}
-// //             </button>
-// //           </div>
-// //         </div>
-// //       </div>
-
-// //       {/* MOBILE MENU (unchanged) */}
-// //       {isOpen && (
-// //         <div className="md:hidden bg-black border-t border-gray-800 px-4 py-4 space-y-2">
-// //           {navItems.map((item) => (
-// //             <div key={item.name}>
-// //               <div className="flex justify-between items-center">
-// //                 <NavLink
-// //                   to={item.path}
-// //                   onClick={closeAll}
-// //                   className="text-gray-200 py-2"
-// //                 >
-// //                   {item.name}
-// //                 </NavLink>
-
-// //                 {item.hasDropdown && (
-// //                   <button
-// //                     onClick={() =>
-// //                       setOpenDropdown(
-// //                         openDropdown === item.name ? null : item.name,
-// //                       )
-// //                     }
-// //                   >
-// //                     <ChevronDown
-// //                       size={20}
-// //                       className={openDropdown === item.name ? "rotate-180" : ""}
-// //                     />
-// //                   </button>
-// //                 )}
-// //               </div>
-
-// //               {/* FIRST LEVEL MOBILE */}
-// //               {item.hasDropdown && openDropdown === item.name && (
-// //                 <div className="pl-4 space-y-1">
-// //                   {item.dropdownItems.map((sub) => (
-// //                     <div key={sub.name}>
-// //                       <div className="flex justify-between items-center">
-// //                         <NavLink
-// //                           to={sub.path}
-// //                           onClick={closeAll}
-// //                           className="text-gray-300 py-2"
-// //                         >
-// //                           {sub.name}
-// //                         </NavLink>
-
-// //                         {sub.hasDropdown && (
-// //                           <button
-// //                             onClick={() =>
-// //                               setOpenSubDropdown(
-// //                                 openSubDropdown === sub.name ? null : sub.name,
-// //                               )
-// //                             }
-// //                           >
-// //                             <ChevronDown
-// //                               size={18}
-// //                               className={
-// //                                 openSubDropdown === sub.name ? "rotate-180" : ""
-// //                               }
-// //                             />
-// //                           </button>
-// //                         )}
-// //                       </div>
-
-// //                       {/* SECOND LEVEL MOBILE */}
-// //                       {sub.hasDropdown && openSubDropdown === sub.name && (
-// //                         <div className="pl-4">
-// //                           {sub.dropdownItems.map((child) => (
-// //                             <NavLink
-// //                               key={child.path}
-// //                               to={child.path}
-// //                               onClick={closeAll}
-// //                               className="block text-gray-400 py-2"
-// //                             >
-// //                               {child.name}
-// //                             </NavLink>
-// //                           ))}
-// //                         </div>
-// //                       )}
-// //                     </div>
-// //                   ))}
-// //                 </div>
-// //               )}
-// //             </div>
-// //           ))}
-// //         </div>
-// //       )}
-// //     </nav>
-// //   );
-// // }
-
 // import React, { useState, useEffect } from "react";
 // import { NavLink } from "react-router-dom";
 // import { Menu, X, ChevronDown, Sun, Moon } from "lucide-react";
@@ -572,11 +303,12 @@
 //   );
 // }
 
-import React, { useState } from "react";
+
+
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { Menu, X, ChevronDown, Sun, Moon } from "lucide-react";
 import ATLAknots from "./Mobile/img/ITLogo.png";
-import { useTheme } from "../context/ThemeContext";
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -625,10 +357,7 @@ const navItems = [
         hasDropdown: true,
         dropdownItems: [
           { name: "UI/UX Design", path: "/uidesign" },
-          {
-            name: "Web Design & Development",
-            path: "/websitedesigndevelopment",
-          },
+          { name: "Web Design & Development", path: "/websitedesigndevelopment" },
           { name: "Branding", path: "/contentwritingbranding" },
         ],
       },
@@ -645,7 +374,32 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const [openSubDropdown, setOpenSubDropdown] = useState(null);
-  const { isDark, toggleTheme } = useTheme();
+  const [isDark, setIsDark] = useState(true);
+
+  // Load theme from localStorage
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "light") {
+      setIsDark(false);
+      document.documentElement.classList.remove("dark");
+    } else {
+      setIsDark(true);
+      document.documentElement.classList.add("dark");
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const newIsDark = !isDark;
+    setIsDark(newIsDark);
+
+    if (newIsDark) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  };
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -656,7 +410,15 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-white dark:bg-zinc-950 border-b border-gray-200 dark:border-zinc-900 sticky top-0 z-50 transition-all duration-300 shadow-sm dark:shadow-none">
+    <nav 
+      className={`
+        sticky top-0 z-50 border-b transition-all duration-300
+        ${isDark 
+          ? "bg-black/90 border-gray-800" 
+          : "bg-white/95 border-gray-200 shadow-sm"
+        }
+      `}
+    >
       <div className="max-w-7xl mx-auto px-5">
         <div className="flex justify-between items-center h-20">
           {/* LOGO */}
@@ -669,18 +431,26 @@ export default function Navbar() {
           </NavLink>
 
           {/* DESKTOP MENU */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-1">
             {navItems.map((item) => (
               <div key={item.name} className="relative group">
                 <NavLink
                   to={item.path}
-                  className="px-4 py-5 text-blue-700 dark:text-white hover:text-red-600 dark:hover:text-red-500 flex items-center gap-1.5 font-medium transition-colors duration-150"
+                  onClick={item.name === "Home" ? undefined : undefined} // Removed animation effect for Home
+                  className={`
+                    px-4 py-5 flex items-center gap-1.5 transition-colors duration-150
+                    ${isDark 
+                      ? "text-gray-200 hover:text-red-400" 
+                      : "text-gray-700 hover:text-blue-600 font-medium"
+                    }
+                  `}
                 >
                   {item.name}
                   {item.hasDropdown && (
                     <ChevronDown
                       size={16}
-                      className="group-hover:rotate-180 transition-transform duration-200"
+                      className={`transition-transform duration-200 
+                        ${isDark ? "group-hover:rotate-180" : "group-hover:rotate-180 text-blue-600"}`}
                     />
                   )}
                 </NavLink>
@@ -688,30 +458,36 @@ export default function Navbar() {
                 {/* FIRST LEVEL DROPDOWN */}
                 {item.hasDropdown && (
                   <div
-                    className="
-                      absolute left-0 top-full pt-3 w-64
-                      bg-white dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 
-                      rounded-2xl shadow-2xl dark:shadow-black/80
+                    className={`
+                      absolute left-0 top-full pt-2 w-56 
+                      border rounded-lg shadow-xl transition-all duration-200 ease-out
                       opacity-0 scale-95 pointer-events-none
                       group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto
-                      transition-all duration-200 ease-out
-                    "
+                      ${isDark 
+                        ? "bg-black/95 border-gray-700" 
+                        : "bg-white border-gray-200 shadow-lg"
+                      }
+                    `}
                   >
                     {item.dropdownItems.map((sub) => (
-                      <div key={sub.name} className="relative group/sub px-2">
+                      <div key={sub.name} className="relative group/sub">
                         <NavLink
                           to={sub.path}
-                          className="flex justify-between items-center px-5 py-3.5 
-                                     text-gray-700 dark:text-gray-100 
-                                     hover:bg-gray-50 dark:hover:bg-zinc-900 
-                                     hover:text-red-600 dark:hover:text-red-500 
-                                     rounded-xl transition-all duration-150"
+                          className={`
+                            flex justify-between items-center px-4 py-2.5 
+                            transition-colors duration-150
+                            ${isDark 
+                              ? "text-gray-200 hover:bg-red-900/40" 
+                              : "text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                            }
+                          `}
                         >
                           {sub.name}
                           {sub.hasDropdown && (
                             <ChevronDown
                               size={14}
-                              className="rotate-[-90deg] group-hover/sub:rotate-[-270deg] transition-transform duration-200"
+                              className={`transition-transform duration-200
+                                ${isDark ? "rotate-[-90deg] group-hover/sub:rotate-[-270deg]" : "rotate-[-90deg] group-hover/sub:rotate-[-270deg] text-blue-600"}`}
                             />
                           )}
                         </NavLink>
@@ -719,24 +495,28 @@ export default function Navbar() {
                         {/* SECOND LEVEL DROPDOWN */}
                         {sub.hasDropdown && (
                           <div
-                            className="
-                              absolute left-full top-2 ml-3 w-60
-                              bg-white dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 
-                              rounded-2xl shadow-2xl dark:shadow-black/80
+                            className={`
+                              absolute left-full top-0 ml-1 w-52 border rounded-lg shadow-xl
+                              transition-all duration-200 ease-out
                               opacity-0 scale-95 pointer-events-none
                               group-hover/sub:opacity-100 group-hover/sub:scale-100 group-hover/sub:pointer-events-auto
-                              transition-all duration-200 ease-out
-                            "
+                              ${isDark 
+                                ? "bg-black/95 border-gray-700" 
+                                : "bg-white border-gray-200"
+                              }
+                            `}
                           >
                             {sub.dropdownItems.map((child) => (
                               <NavLink
                                 key={child.path}
                                 to={child.path}
-                                className="block px-5 py-3.5 
-                                           text-gray-700 dark:text-gray-100 
-                                           hover:bg-gray-50 dark:hover:bg-zinc-900 
-                                           hover:text-red-600 dark:hover:text-red-500 
-                                           rounded-xl mx-1 transition-all duration-150"
+                                className={`
+                                  block px-4 py-2.5 transition-colors duration-150
+                                  ${isDark 
+                                    ? "text-gray-200 hover:bg-red-900/40" 
+                                    : "text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                                  }
+                                `}
                               >
                                 {child.name}
                               </NavLink>
@@ -752,37 +532,59 @@ export default function Navbar() {
           </div>
 
           {/* RIGHT SIDE */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
+            {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="p-3 text-blue-700 dark:text-white hover:text-red-600 dark:hover:text-red-500 hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-2xl transition-all"
+              className={`
+                p-2 rounded-full transition-all duration-150
+                ${isDark 
+                  ? "text-gray-200 hover:text-red-400 hover:bg-gray-800" 
+                  : "text-gray-700 hover:text-blue-600 hover:bg-gray-100"
+                }
+              `}
+              title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
             >
-              {isDark ? <Sun size={23} /> : <Moon size={23} />}
+              {isDark ? <Sun size={22} /> : <Moon size={22} />}
             </button>
 
-            <button
-              onClick={toggleMenu}
-              className="md:hidden p-3 text-blue-700 dark:text-white hover:bg-gray-100 dark:hover:bg-zinc-900 rounded-2xl"
-            >
-              {isOpen ? <X size={28} /> : <Menu size={28} />}
-            </button>
+            {/* MOBILE BUTTON */}
+            <div className="md:hidden">
+              <button 
+                onClick={toggleMenu} 
+                className={isDark ? "text-gray-200" : "text-gray-700"}
+              >
+                {isOpen ? <X size={28} /> : <Menu size={28} />}
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* MOBILE MENU - Dark Mode bhi deep */}
+      {/* MOBILE MENU */}
       {isOpen && (
-        <div className="md:hidden bg-white dark:bg-zinc-950 border-t border-gray-200 dark:border-zinc-900 px-5 py-6 space-y-2">
+        <div 
+          className={`
+            md:hidden px-5 py-6 space-y-2 border-t
+            ${isDark 
+              ? "bg-black border-gray-800" 
+              : "bg-white border-gray-200"
+            }
+          `}
+        >
           {navItems.map((item) => (
-            <div
-              key={item.name}
-              className="border-b border-gray-100 dark:border-zinc-900 last:border-none pb-4 last:pb-0"
-            >
-              <div className="flex justify-between items-center py-3">
+            <div key={item.name}>
+              <div className="flex justify-between items-center">
                 <NavLink
                   to={item.path}
                   onClick={closeAll}
-                  className="text-blue-700 dark:text-white font-medium flex-1 text-lg"
+                  className={`
+                    py-3 flex-1 transition-colors
+                    ${isDark 
+                      ? "text-gray-200" 
+                      : "text-gray-800 font-medium"
+                    }
+                  `}
                 >
                   {item.name}
                 </NavLink>
@@ -790,29 +592,31 @@ export default function Navbar() {
                 {item.hasDropdown && (
                   <button
                     onClick={() =>
-                      setOpenDropdown(
-                        openDropdown === item.name ? null : item.name,
-                      )
+                      setOpenDropdown(openDropdown === item.name ? null : item.name)
                     }
-                    className="text-gray-500 dark:text-gray-400 p-1"
                   >
                     <ChevronDown
-                      size={24}
-                      className={`transition-transform ${openDropdown === item.name ? "rotate-180" : ""}`}
+                      size={20}
+                      className={`${isDark ? "text-gray-400" : "text-gray-500"} 
+                        ${openDropdown === item.name ? "rotate-180" : ""}`}
                     />
                   </button>
                 )}
               </div>
 
+              {/* First Level Mobile Dropdown */}
               {item.hasDropdown && openDropdown === item.name && (
-                <div className="pl-6 space-y-3 border-l border-gray-200 dark:border-zinc-800">
+                <div className="pl-6 space-y-1">
                   {item.dropdownItems.map((sub) => (
                     <div key={sub.name}>
-                      <div className="flex justify-between items-center py-2">
+                      <div className="flex justify-between items-center">
                         <NavLink
                           to={sub.path}
                           onClick={closeAll}
-                          className="text-gray-700 dark:text-gray-100 flex-1"
+                          className={`
+                            py-2.5 flex-1 transition-colors
+                            ${isDark ? "text-gray-300" : "text-gray-700"}
+                          `}
                         >
                           {sub.name}
                         </NavLink>
@@ -821,27 +625,31 @@ export default function Navbar() {
                           <button
                             onClick={() =>
                               setOpenSubDropdown(
-                                openSubDropdown === sub.name ? null : sub.name,
+                                openSubDropdown === sub.name ? null : sub.name
                               )
                             }
-                            className="text-gray-500 dark:text-gray-400 p-1"
                           >
                             <ChevronDown
-                              size={22}
-                              className={`transition-transform ${openSubDropdown === sub.name ? "rotate-180" : ""}`}
+                              size={18}
+                              className={`${isDark ? "text-gray-400" : "text-gray-500"} 
+                                ${openSubDropdown === sub.name ? "rotate-180" : ""}`}
                             />
                           </button>
                         )}
                       </div>
 
+                      {/* Second Level Mobile */}
                       {sub.hasDropdown && openSubDropdown === sub.name && (
-                        <div className="pl-6 space-y-2 mt-1">
+                        <div className="pl-6">
                           {sub.dropdownItems.map((child) => (
                             <NavLink
                               key={child.path}
                               to={child.path}
                               onClick={closeAll}
-                              className="block py-2 text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-500"
+                              className={`
+                                block py-2 text-sm transition-colors
+                                ${isDark ? "text-gray-400" : "text-gray-600"}
+                              `}
                             >
                               {child.name}
                             </NavLink>
