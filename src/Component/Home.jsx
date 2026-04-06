@@ -1478,6 +1478,410 @@
 
 
 
+// import React, { useState, useEffect, use } from "react";
+// import { motion } from "framer-motion";
+// import {
+//   ArrowRight,
+//   Code,
+//   ShieldCheck,
+//   Users,
+//   Server,
+//   Headphones,
+//   BarChart3,
+//   CheckCircle,
+//   Briefcase,
+//   HardDrive,
+// } from "lucide-react";
+
+// const fadeInUp = {
+//   hidden: { opacity: 0, y: 60 },
+//   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+// };
+
+// const staggerContainer = {
+//   hidden: {},
+//   visible: { transition: { staggerChildren: 0.15 } },
+// };
+
+// export default function Home() {
+//   const [isDark, setIsDark] = useState(true);
+
+//   useEffect(() => {
+//     const checkTheme = () => {
+//       const darkMode = document.documentElement.classList.contains("dark");
+//       setIsDark(darkMode);
+//     };
+
+//   //   useEffect(() => {
+//   //     checkTheme();
+//   //   }
+//   // ,[])
+
+//     checkTheme();
+
+//     const observer = new MutationObserver(checkTheme);
+//     observer.observe(document.documentElement, {
+//       attributes: true,
+//       attributeFilter: ["class"],
+//     });
+
+//     return () => observer.disconnect();
+//   }, []);
+
+//   // Reusable class helpers
+//   const cardClass = isDark
+//     ? "bg-gray-900/60 backdrop-blur-sm border border-gray-800 rounded-2xl p-6 md:p-8 flex flex-col items-center text-center h-full"
+//     : "bg-white border border-gray-200 shadow-md rounded-2xl p-6 md:p-8 flex flex-col items-center text-center h-full";
+
+//   const headingClass = isDark ? "text-white" : "text-gray-900";
+//   const bodyClass = isDark ? "text-gray-300" : "text-gray-700";
+//   const accentClass = isDark ? "text-red-500" : "text-blue-600";
+//   const sectionHeadingAccent = isDark ? "text-red-400" : "text-blue-700";
+
+//   return (
+//     <div
+//       className={`min-h-screen overflow-x-hidden transition-colors duration-700
+//       ${isDark ? "bg-black text-white" : "bg-white text-gray-900"}`}
+//     >
+//       {/* ====================== HERO SECTION ====================== */}
+//       <section
+//         className={`relative min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-24 overflow-hidden
+//         ${
+//           isDark
+//             ? "bg-gradient-to-br from-black via-gray-950 to-black"
+//             : "bg-gradient-to-br from-slate-50 via-white to-blue-50"
+//         }`}
+//       >
+//         <div className="max-w-7xl mx-auto text-center">
+//           <motion.div
+//             initial={isDark ? "hidden" : false}
+//             animate={isDark ? "visible" : false}
+//             variants={isDark ? staggerContainer : {}}
+//           >
+//             <motion.h1
+//               variants={isDark ? fadeInUp : {}}
+//               className={`text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 ${headingClass}`}
+//             >
+//               ATLA KNOTS
+//               <br />
+//               <span
+//                 className={
+//                   isDark
+//                     ? "text-transparent bg-clip-text bg-gradient-to-r from-white via-red-400 to-white"
+//                     : "text-blue-600"
+//                 }
+//               >
+//                 IT SOLUTIONS
+//               </span>
+//             </motion.h1>
+
+//             <motion.p
+//               variants={isDark ? fadeInUp : {}}
+//               className={`text-xl md:text-2xl max-w-4xl mx-auto mb-10 leading-relaxed
+//                 ${isDark ? "text-gray-300" : "text-gray-700"}`}
+//             >
+//               Making technology impactful, dependable, and easy to use — for
+//               businesses of all sizes.
+//             </motion.p>
+
+//             <motion.p
+//               variants={isDark ? fadeInUp : {}}
+//               className={`text-lg md:text-xl max-w-3xl mx-auto mb-12
+//                 ${isDark ? "text-gray-400" : "text-gray-600"}`}
+//             >
+//               We build secure, future-ready software that drives efficiency and
+//               digital transformation.
+//             </motion.p>
+
+//             <motion.div
+//               variants={isDark ? fadeInUp : {}}
+//               className="flex flex-col sm:flex-row gap-6 justify-center"
+//             >
+//               <button
+//                 className={`group px-10 py-5 rounded-full text-lg font-semibold flex items-center gap-3 transition-all
+//                   ${
+//                     isDark
+//                       ? "bg-red-600 hover:bg-red-700 text-white"
+//                       : "bg-blue-600 hover:bg-blue-700 text-black"
+//                   }`}
+//               >
+//                 GET STARTED
+//                 <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+//               </button>
+
+//               <button
+//                 className={`group px-10 py-5 border-2 rounded-full text-lg font-semibold transition-all
+//                   ${
+//                     isDark
+//                       ? "border-red-600/60 text-red-400 hover:border-red-500"
+//                       : "border-blue-600 text-blue-600 hover:bg-blue-50"
+//                   }`}
+//               >
+//                 VIEW OUR WORK
+//               </button>
+//             </motion.div>
+//           </motion.div>
+//         </div>
+//       </section>
+
+//       {/* ====================== SERVICES SECTION ====================== */}
+//       <section
+//         className={`py-24 px-6 md:px-12 lg:px-24 transition-colors
+//         ${isDark ? "bg-gradient-to-b from-black to-gray-950" : "bg-gray-50"}`}
+//       >
+//         <div className="max-w-7xl mx-auto">
+//           <motion.h2
+//             initial={isDark ? "hidden" : false}
+//             whileInView={isDark ? "visible" : false}
+//             variants={fadeInUp}
+//             className={`text-5xl md:text-6xl font-bold text-center mb-6 ${headingClass}`}
+//           >
+//             OUR{" "}
+//             <span className={accentClass}>SERVICES</span>
+//           </motion.h2>
+
+//           <motion.p
+//             initial={isDark ? "hidden" : false}
+//             whileInView={isDark ? "visible" : false}
+//             variants={fadeInUp}
+//             className={`text-xl text-center mb-16 max-w-3xl mx-auto ${bodyClass}`}
+//           >
+//             Comprehensive IT & BPO solutions — from development to support and
+//             infrastructure
+//           </motion.p>
+
+//           <div className="space-y-20">
+//             {/* IT Services */}
+//             <div>
+//               <h3 className={`text-4xl md:text-5xl font-bold mb-8 text-center tracking-tight ${sectionHeadingAccent}`}>
+//                 1. Information Technology Services
+//               </h3>
+//               <p className={`text-lg md:text-xl mb-12 text-center max-w-4xl mx-auto leading-relaxed ${bodyClass}`}>
+//                 Supporting companies at every stage of the product lifecycle.
+//               </p>
+
+//               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+//                 {/* Development */}
+//                 <motion.div
+//                   initial={isDark ? "hidden" : false}
+//                   whileInView={isDark ? "visible" : false}
+//                   variants={fadeInUp}
+//                   className={cardClass}
+//                 >
+//                   <Code className={`w-12 h-12 md:w-14 md:h-14 mb-6 ${accentClass}`} />
+//                   <h4 className={`text-xl md:text-2xl font-bold mb-5 ${headingClass}`}>
+//                     Development
+//                   </h4>
+//                   <ul className={`text-sm md:text-base w-full max-w-xs space-y-3 ${bodyClass}`}>
+//                     <li>• Web application development</li>
+//                     <li>• Mobile application development</li>
+//                     <li>• Secure, scalable & user-friendly solutions</li>
+//                   </ul>
+//                 </motion.div>
+
+//                 {/* Testing */}
+//                 <motion.div
+//                   initial={isDark ? "hidden" : false}
+//                   whileInView={isDark ? "visible" : false}
+//                   variants={fadeInUp}
+//                   className={cardClass}
+//                 >
+//                   <ShieldCheck className={`w-12 h-12 md:w-14 md:h-14 mb-6 ${accentClass}`} />
+//                   <h4 className={`text-xl md:text-2xl font-bold mb-5 ${headingClass}`}>
+//                     Testing
+//                   </h4>
+//                   <ul className={`text-sm md:text-base w-full max-w-xs space-y-3 ${bodyClass}`}>
+//                     <li>• Web application testing</li>
+//                     <li>• Mobile application testing</li>
+//                     <li>• Quality, performance & security assurance</li>
+//                   </ul>
+//                 </motion.div>
+
+//                 {/* L2 Support */}
+//                 <motion.div
+//                   initial={isDark ? "hidden" : false}
+//                   whileInView={isDark ? "visible" : false}
+//                   variants={fadeInUp}
+//                   className={cardClass}
+//                 >
+//                   <Users className={`w-12 h-12 md:w-14 md:h-14 mb-6 ${accentClass}`} />
+//                   <h4 className={`text-xl md:text-2xl font-bold mb-5 ${headingClass}`}>
+//                     L2 Support
+//                   </h4>
+//                   <p className={`text-sm md:text-base leading-relaxed max-w-xs ${bodyClass}`}>
+//                     Advanced troubleshooting, in-depth diagnosis & root cause
+//                     resolution for complex issues.
+//                   </p>
+//                 </motion.div>
+
+//                 {/* Product Assistance */}
+//                 <motion.div
+//                   initial={isDark ? "hidden" : false}
+//                   whileInView={isDark ? "visible" : false}
+//                   variants={fadeInUp}
+//                   className={cardClass}
+//                 >
+//                   <Server className={`w-12 h-12 md:w-14 md:h-14 mb-6 ${accentClass}`} />
+//                   <h4 className={`text-xl md:text-2xl font-bold mb-5 ${headingClass}`}>
+//                     Product Assistance
+//                   </h4>
+//                   <ul className={`text-sm md:text-base w-full max-w-xs space-y-3 ${bodyClass}`}>
+//                     <li>• Continuous support & maintenance</li>
+//                     <li>• Ticket & incident management</li>
+//                     <li>• Change management & SLA tracking</li>
+//                   </ul>
+//                 </motion.div>
+//               </div>
+//             </div>
+
+//             {/* BPO Services */}
+//             <div>
+//               <h3 className={`text-4xl md:text-5xl font-bold mb-8 text-center tracking-tight ${sectionHeadingAccent}`}>
+//                 2. Business Process Outsourcing (BPO) Services
+//               </h3>
+//               <p className={`text-lg md:text-xl mb-12 text-center max-w-3xl mx-auto leading-relaxed ${bodyClass}`}>
+//                 Streamline operations and enhance customer engagement with
+//                 reliable, scalable support.
+//               </p>
+
+//               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+//                 {/* Voice, Chat & Email */}
+//                 <motion.div
+//                   initial={isDark ? "hidden" : false}
+//                   whileInView={isDark ? "visible" : false}
+//                   variants={fadeInUp}
+//                   className={cardClass}
+//                 >
+//                   <Headphones className={`w-12 h-12 md:w-14 md:h-14 mb-6 ${accentClass}`} />
+//                   <h4 className={`text-xl md:text-2xl font-bold mb-5 ${headingClass}`}>
+//                     Voice, Chat & Email
+//                   </h4>
+//                   <ul className={`text-sm md:text-base w-full  max-w-xs space-y-3 ${bodyClass}`}>
+//                     <li>• Inbound & outbound voice support</li>
+//                     <li>• Real-time chat assistance</li>
+//                     <li>• Structured email & ticketing</li>
+//                   </ul>
+//                 </motion.div>
+
+//                 {/* Cataloguing */}
+//                 <motion.div
+//                   initial={isDark ? "hidden" : false}
+//                   whileInView={isDark ? "visible" : false}
+//                   variants={fadeInUp}
+//                   className={cardClass}
+//                 >
+//                   <BarChart3 className={`w-12 h-12 md:w-14 md:h-14 mb-6 ${accentClass}`} />
+//                   <h4 className={`text-xl md:text-2xl font-bold mb-5 ${headingClass}`}>
+//                     Cataloguing & Enrichment
+//                   </h4>
+//                   <ul className={`text-sm md:text-base w-full max-w-xs space-y-3 ${bodyClass}`}>
+//                     <li>• Product descriptions, tags & keywords</li>
+//                     <li>• Data validation & cleaning</li>
+//                     <li>• Category & attribute enrichment</li>
+//                   </ul>
+//                 </motion.div>
+
+//                 {/* QA */}
+//                 <motion.div
+//                   initial={isDark ? "hidden" : false}
+//                   whileInView={isDark ? "visible" : false}
+//                   variants={fadeInUp}
+//                   className={cardClass}
+//                 >
+//                   <CheckCircle className={`w-12 h-12 md:w-14 md:h-14 mb-6 ${accentClass}`} />
+//                   <h4 className={`text-xl md:text-2xl font-bold mb-5 ${headingClass}`}>
+//                     Quality Assurance
+//                   </h4>
+//                   <p className={`text-sm md:text-base leading-relaxed max-w-xs ${bodyClass}`}>
+//                     Call/chat audits, SOP/SLA compliance, feedback, coaching &
+//                     continuous improvement.
+//                   </p>
+//                 </motion.div>
+//               </div>
+//             </div>
+
+//             {/* Infrastructure */}
+//             <div className="text-center max-w-5xl mx-auto">
+//               <h3 className={`text-4xl md:text-5xl font-bold mb-8 tracking-tight ${sectionHeadingAccent}`}>
+//                 3. Support & Infrastructure Setup
+//               </h3>
+//               <p className={`text-lg md:text-xl leading-relaxed ${bodyClass}`}>
+//                 End-to-end BPO-ready setup: modern offices, high-speed networks,
+//                 advanced telephony, servers, workstations, robust security, and
+//                 power backup — built for reliability and scale.
+//               </p>
+//             </div>
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* ====================== WHY CHOOSE US ====================== */}
+//       <section
+//         className={`relative py-24 px-6 md:px-12 lg:px-24 ${isDark ? "bg-black" : "bg-white"}`}
+//       >
+//         <div className="max-w-7xl mx-auto">
+//           <motion.h2
+//             initial={isDark ? "hidden" : false}
+//             whileInView={isDark ? "visible" : false}
+//             variants={fadeInUp}
+//             className={`text-5xl md:text-6xl font-bold text-center mb-16 ${headingClass}`}
+//           >
+//             WHY{" "}
+//             <span className={accentClass}>CHOOSE US</span>
+//           </motion.h2>
+
+//           <div className="grid md:grid-cols-3 gap-10 lg:gap-16 text-center">
+//             {[
+//               {
+//                 icon: Users,
+//                 title: "True Partnership",
+//                 desc: "We become an extension of your team — understanding your business deeply.",
+//               },
+//               {
+//                 icon: Briefcase,
+//                 title: "Enterprise Expertise",
+//                 desc: "Proven experience in BFSI, retail, government & PSU projects.",
+//               },
+//               {
+//                 icon: HardDrive,
+//                 title: "Long-term Support",
+//                 desc: "24×7 production support, SLA-based maintenance & AMS.",
+//               },
+//             ].map((item, idx) => (
+//               <motion.div
+//                 key={idx}
+//                 initial={isDark ? "hidden" : false}
+//                 whileInView={isDark ? "visible" : false}
+//                 variants={fadeInUp}
+//                 className={`p-10 rounded-3xl border transition-all
+//                   ${
+//                     isDark
+//                       ? "bg-gray-900 border-gray-800"
+//                       : "bg-white border-gray-200 shadow-md"
+//                   }`}
+//               >
+//                 <div
+//                   className={`inline-flex items-center justify-center w-20 h-20 rounded-2xl mb-8 mx-auto
+//                   ${isDark ? "bg-gray-800" : "bg-blue-50"}`}
+//                 >
+//                   <item.icon className={`w-10 h-10 ${accentClass}`} />
+//                 </div>
+//                 <h3 className={`text-3xl font-bold mb-5 ${headingClass}`}>
+//                   {item.title}
+//                 </h3>
+//                 <p className={`leading-relaxed ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+//                   {item.desc}
+//                 </p>
+//               </motion.div>
+//             ))}
+//           </div>
+//         </div>
+//       </section>
+//     </div>
+//   );
+// }
+
+
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
@@ -1504,22 +1908,18 @@ const staggerContainer = {
 };
 
 export default function Home() {
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(
+    () => document.documentElement.classList.contains("dark")
+  );
 
   useEffect(() => {
-    const checkTheme = () => {
-      const darkMode = document.documentElement.classList.contains("dark");
-      setIsDark(darkMode);
-    };
-
-    checkTheme();
-
-    const observer = new MutationObserver(checkTheme);
+    const observer = new MutationObserver(() => {
+      setIsDark(document.documentElement.classList.contains("dark"));
+    });
     observer.observe(document.documentElement, {
       attributes: true,
       attributeFilter: ["class"],
     });
-
     return () => observer.disconnect();
   }, []);
 
@@ -1597,7 +1997,7 @@ export default function Home() {
                   ${
                     isDark
                       ? "bg-red-600 hover:bg-red-700 text-white"
-                      : "bg-blue-600 hover:bg-blue-700 text-black"
+                      : "bg-blue-600 hover:bg-blue-700 text-white"
                   }`}
               >
                 GET STARTED
@@ -1751,7 +2151,7 @@ export default function Home() {
                   <h4 className={`text-xl md:text-2xl font-bold mb-5 ${headingClass}`}>
                     Voice, Chat & Email
                   </h4>
-                  <ul className={`text-sm md:text-base w-full  max-w-xs space-y-3 ${bodyClass}`}>
+                  <ul className={`text-sm md:text-base w-full max-w-xs space-y-3 ${bodyClass}`}>
                     <li>• Inbound & outbound voice support</li>
                     <li>• Real-time chat assistance</li>
                     <li>• Structured email & ticketing</li>
