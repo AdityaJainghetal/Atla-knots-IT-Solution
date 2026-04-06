@@ -485,15 +485,7 @@ export default function RecentWork() {
                   </div>
 
                   {/* Light mode: show title below image */}
-                  {!isDark && (
-                    <div className="px-4 py-3">
-                      <h3 className="text-base font-bold text-gray-900">{item.title}</h3>
-                      <p className="text-xs text-gray-500 mt-1">
-                        {item.categories.slice(0, 3).join(" • ")}
-                        {item.categories.length > 3 && " • +more"}
-                      </p>
-                    </div>
-                  )}
+              
                 </div>
               </a>
             ))
