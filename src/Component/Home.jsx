@@ -2472,7 +2472,7 @@ export default function Home() {
             className={`absolute inset-0 z-10 transition-colors duration-700
               ${isDark
                 ? "bg-gradient-to-br from-black/90 via-black/80 to-black/90"
-                : "bg-gradient-to-br from-slate-900/80 via-slate-900/70 to-red-950/70"}`}
+                : "bg-gradient-to-br from-slate-950/95 via-slate-950/90 to-black/70"}`}
           />
         </div>
 
@@ -2485,7 +2485,7 @@ export default function Home() {
           >
             <motion.h1
               variants={fadeInUp}
-              className={`text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 ${headingClass}`}
+              className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 text-white"
             >
               ATLA KNOTS
               <br />
