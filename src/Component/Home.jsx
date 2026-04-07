@@ -392,7 +392,6 @@
 // // // //   );
 // // // // }
 
-
 // // // import React, { useState, useEffect } from "react";
 // // // import { motion, AnimatePresence } from "framer-motion";
 // // // import {
@@ -469,7 +468,7 @@
 // // //     >
 // // //       {/* ====================== HERO SECTION WITH CAROUSEL ====================== */}
 // // //       <section className="relative min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-24 overflow-hidden">
-        
+
 // // //         {/* Background Carousel */}
 // // //         <div className="absolute inset-0 z-0">
 // // //           <AnimatePresence mode="wait">
@@ -477,8 +476,8 @@
 // // //               <motion.div
 // // //                 key={index}
 // // //                 initial={{ opacity: 0 }}
-// // //                 animate={{ 
-// // //                   opacity: index === currentBgIndex ? 1 : 0 
+// // //                 animate={{
+// // //                   opacity: index === currentBgIndex ? 1 : 0
 // // //                 }}
 // // //                 transition={{ duration: 1.2, ease: "easeInOut" }}
 // // //                 className="absolute inset-0 bg-cover bg-center"
@@ -490,11 +489,11 @@
 // // //           </AnimatePresence>
 
 // // //           {/* Overlay */}
-// // //           <div 
+// // //           <div
 // // //             className={`absolute inset-0 z-10 transition-colors duration-700
-// // //               ${isDark 
-// // //                 ? "bg-gradient-to-br from-black/85 via-black/75 to-black/85" 
-// // //                 : "bg-gradient-to-br from-slate-900/70 via-slate-900/50 to-blue-950/60"}`} 
+// // //               ${isDark
+// // //                 ? "bg-gradient-to-br from-black/85 via-black/75 to-black/85"
+// // //                 : "bg-gradient-to-br from-slate-900/70 via-slate-900/50 to-blue-950/60"}`}
 // // //           />
 // // //         </div>
 
@@ -576,8 +575,8 @@
 // // //             <div
 // // //               key={idx}
 // // //               className={`w-3 h-3 rounded-full transition-all duration-500 cursor-pointer
-// // //                 ${idx === currentBgIndex 
-// // //                   ? "bg-white scale-125 shadow-lg" 
+// // //                 ${idx === currentBgIndex
+// // //                   ? "bg-white scale-125 shadow-lg"
 // // //                   : "bg-white/50 hover:bg-white/70"}`}
 // // //               onClick={() => setCurrentBgIndex(idx)}
 // // //             />
@@ -743,7 +742,7 @@
 // // //                 3. Support & Infrastructure Setup
 // // //               </h3>
 // // //               <p className={`text-lg md:text-xl leading-relaxed ${bodyClass}`}>
-// // //                 End-to-end BPO-ready setup: modern offices, high-speed networks, advanced telephony, 
+// // //                 End-to-end BPO-ready setup: modern offices, high-speed networks, advanced telephony,
 // // //                 servers, workstations, robust security, and power backup.
 // // //               </p>
 // // //             </div>
@@ -817,7 +816,6 @@
 // // //   );
 // // // }
 
-
 // // // import React, { useState, useEffect } from "react";
 // // // import { motion, AnimatePresence } from "framer-motion";
 // // // import {
@@ -877,12 +875,12 @@
 // // //   }, []);
 
 // // //   return (
-// // //     <div className={`min-h-screen overflow-x-hidden transition-colors duration-700 
+// // //     <div className={`min-h-screen overflow-x-hidden transition-colors duration-700
 // // //       ${isDark ? "bg-black text-white" : "bg-white text-gray-900"}`}>
 
 // // //       {/* ====================== HERO SECTION ====================== */}
 // // //       <section className="relative min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-24 overflow-hidden">
-        
+
 // // //         {/* Background Carousel */}
 // // //         <div className="absolute inset-0 z-0">
 // // //           <AnimatePresence mode="wait">
@@ -899,11 +897,11 @@
 // // //           </AnimatePresence>
 
 // // //           {/* Overlay */}
-// // //           <div 
-// // //             className={`absolute inset-0 z-10 
-// // //               ${isDark 
-// // //                 ? "bg-gradient-to-br from-black/90 via-black/80 to-black/85" 
-// // //                 : "bg-gradient-to-br from-black/65 via-black/55 to-black/70"}`} 
+// // //           <div
+// // //             className={`absolute inset-0 z-10
+// // //               ${isDark
+// // //                 ? "bg-gradient-to-br from-black/90 via-black/80 to-black/85"
+// // //                 : "bg-gradient-to-br from-black/65 via-black/55 to-black/70"}`}
 // // //           />
 // // //         </div>
 
@@ -949,8 +947,8 @@
 // // //               </button>
 
 // // //               <button className={`group px-12 py-6 border-2 rounded-full text-lg font-semibold transition-all
-// // //                 ${isDark 
-// // //                   ? "border-red-500 text-red-400 hover:border-red-400 hover:text-red-300" 
+// // //                 ${isDark
+// // //                   ? "border-red-500 text-red-400 hover:border-red-400 hover:text-red-300"
 // // //                   : "border-white text-white hover:bg-white hover:text-red-600"}`}>
 // // //                 VIEW OUR WORK
 // // //               </button>
@@ -1015,8 +1013,8 @@
 // // //                     whileInView="visible"
 // // //                     variants={fadeInUp}
 // // //                     className={`rounded-3xl p-8 flex flex-col items-center text-center h-full transition-all border
-// // //                       ${isDark 
-// // //                         ? "bg-zinc-900 border-zinc-700 hover:border-red-600" 
+// // //                       ${isDark
+// // //                         ? "bg-zinc-900 border-zinc-700 hover:border-red-600"
 // // //                         : "bg-white border-gray-200 hover:border-red-600 shadow-md"}`}
 // // //                   >
 // // //                     <item.icon className="w-14 h-14 mb-6 text-red-600" />
@@ -1054,8 +1052,8 @@
 // // //                     whileInView="visible"
 // // //                     variants={fadeInUp}
 // // //                     className={`rounded-3xl p-8 flex flex-col items-center text-center h-full transition-all border
-// // //                       ${isDark 
-// // //                         ? "bg-zinc-900 border-zinc-700 hover:border-red-600" 
+// // //                       ${isDark
+// // //                         ? "bg-zinc-900 border-zinc-700 hover:border-red-600"
 // // //                         : "bg-white border-gray-200 hover:border-red-600 shadow-md"}`}
 // // //                   >
 // // //                     <item.icon className="w-14 h-14 mb-6 text-red-600" />
@@ -1078,7 +1076,7 @@
 // // //                 3. Support & Infrastructure Setup
 // // //               </h3>
 // // //               <p className={`text-lg md:text-xl leading-relaxed max-w-4xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-// // //                 End-to-end BPO-ready setup: modern offices, high-speed networks, advanced telephony, 
+// // //                 End-to-end BPO-ready setup: modern offices, high-speed networks, advanced telephony,
 // // //                 servers, workstations, robust security, and power backup.
 // // //               </p>
 // // //             </div>
@@ -1110,8 +1108,8 @@
 // // //                 whileInView="visible"
 // // //                 variants={fadeInUp}
 // // //                 className={`p-10 rounded-3xl border transition-all ${
-// // //                   isDark 
-// // //                     ? "bg-zinc-900 border-zinc-700 hover:border-red-600" 
+// // //                   isDark
+// // //                     ? "bg-zinc-900 border-zinc-700 hover:border-red-600"
 // // //                     : "bg-white border-gray-200 hover:border-red-600 shadow-md"
 // // //                 }`}
 // // //               >
@@ -1128,9 +1126,6 @@
 // // //     </div>
 // // //   );
 // // // }
-
-
-
 
 // // import React, { useState, useEffect } from "react";
 // // import { motion, AnimatePresence } from "framer-motion";
@@ -1208,7 +1203,7 @@
 // //     >
 // //       {/* ====================== HERO SECTION WITH CAROUSEL ====================== */}
 // //       <section className="relative min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-24 overflow-hidden">
-        
+
 // //         {/* Background Carousel */}
 // //         <div className="absolute inset-0 z-0">
 // //           <AnimatePresence mode="wait">
@@ -1216,8 +1211,8 @@
 // //               <motion.div
 // //                 key={index}
 // //                 initial={{ opacity: 0 }}
-// //                 animate={{ 
-// //                   opacity: index === currentBgIndex ? 1 : 0 
+// //                 animate={{
+// //                   opacity: index === currentBgIndex ? 1 : 0
 // //                 }}
 // //                 transition={{ duration: 1.2, ease: "easeInOut" }}
 // //                 className="absolute inset-0 bg-cover bg-center"
@@ -1229,11 +1224,11 @@
 // //           </AnimatePresence>
 
 // //           {/* Overlay */}
-// //           <div 
+// //           <div
 // //             className={`absolute inset-0 z-10 transition-colors duration-700
-// //               ${isDark 
-// //                 ? "bg-gradient-to-br from-black/85 via-black/75 to-black/85" 
-// //                 : "bg-gradient-to-br from-slate-900/70 via-slate-900/50 to-blue-950/60"}`} 
+// //               ${isDark
+// //                 ? "bg-gradient-to-br from-black/85 via-black/75 to-black/85"
+// //                 : "bg-gradient-to-br from-slate-900/70 via-slate-900/50 to-blue-950/60"}`}
 // //           />
 // //         </div>
 
@@ -1315,8 +1310,8 @@
 // //             <div
 // //               key={idx}
 // //               className={`w-3 h-3 rounded-full transition-all duration-500 cursor-pointer
-// //                 ${idx === currentBgIndex 
-// //                   ? "bg-white scale-125 shadow-lg" 
+// //                 ${idx === currentBgIndex
+// //                   ? "bg-white scale-125 shadow-lg"
 // //                   : "bg-white/50 hover:bg-white/70"}`}
 // //               onClick={() => setCurrentBgIndex(idx)}
 // //             />
@@ -1491,7 +1486,7 @@
 // //                 3. Support &amp; Infrastructure Setup
 // //               </h3>
 // //               <p className={`text-lg md:text-xl leading-relaxed ${bodyClass}`}>
-// //                 End-to-end BPO-ready setup: modern offices, high-speed networks, advanced telephony, 
+// //                 End-to-end BPO-ready setup: modern offices, high-speed networks, advanced telephony,
 // //                 servers, workstations, robust security, and power backup.
 // //               </p>
 // //             </div>
@@ -1566,7 +1561,6 @@
 // //     </div>
 // //   );
 // // }
-
 
 // import React, { useState, useEffect } from "react";
 // import { motion, AnimatePresence } from "framer-motion";
@@ -1644,7 +1638,7 @@
 //     >
 //       {/* ====================== HERO SECTION WITH CAROUSEL ====================== */}
 //       <section className="relative min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-24 overflow-hidden">
-        
+
 //         {/* Background Carousel */}
 //         <div className="absolute inset-0 z-0">
 //           <AnimatePresence mode="wait">
@@ -1652,8 +1646,8 @@
 //               <motion.div
 //                 key={index}
 //                 initial={{ opacity: 0 }}
-//                 animate={{ 
-//                   opacity: index === currentBgIndex ? 1 : 0 
+//                 animate={{
+//                   opacity: index === currentBgIndex ? 1 : 0
 //                 }}
 //                 transition={{ duration: 1.2, ease: "easeInOut" }}
 //                 className="absolute inset-0 bg-cover bg-center"
@@ -1665,11 +1659,11 @@
 //           </AnimatePresence>
 
 //           {/* Overlay */}
-//           <div 
+//           <div
 //             className={`absolute inset-0 z-10 transition-colors duration-700
-//               ${isDark 
-//                 ? "bg-gradient-to-br from-black/85 via-black/75 to-black/85" 
-//                 : "bg-gradient-to-br from-slate-900/70 via-slate-900/50 to-blue-950/60"}`} 
+//               ${isDark
+//                 ? "bg-gradient-to-br from-black/85 via-black/75 to-black/85"
+//                 : "bg-gradient-to-br from-slate-900/70 via-slate-900/50 to-blue-950/60"}`}
 //           />
 //         </div>
 
@@ -1751,8 +1745,8 @@
 //             <div
 //               key={idx}
 //               className={`w-3 h-3 rounded-full transition-all duration-500 cursor-pointer
-//                 ${idx === currentBgIndex 
-//                   ? "bg-white scale-125 shadow-lg" 
+//                 ${idx === currentBgIndex
+//                   ? "bg-white scale-125 shadow-lg"
 //                   : "bg-white/50 hover:bg-white/70"}`}
 //               onClick={() => setCurrentBgIndex(idx)}
 //             />
@@ -1927,7 +1921,7 @@
 //                 3. Support &amp; Infrastructure Setup
 //               </h3>
 //               <p className={`text-lg md:text-xl leading-relaxed ${bodyClass}`}>
-//                 End-to-end BPO-ready setup: modern offices, high-speed networks, advanced telephony, 
+//                 End-to-end BPO-ready setup: modern offices, high-speed networks, advanced telephony,
 //                 servers, workstations, robust security, and power backup.
 //               </p>
 //             </div>
@@ -2002,8 +1996,6 @@
 //     </div>
 //   );
 // }
-
-
 
 // import React, { useState, useEffect } from "react";
 // import { motion, AnimatePresence } from "framer-motion";
@@ -2390,10 +2382,6 @@
 //   );
 // }
 
-
-
-
-
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
@@ -2408,6 +2396,7 @@ import {
   Briefcase,
   HardDrive,
 } from "lucide-react";
+import heroVideo from "../assets/herosectionvideo.mp4";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 60 },
@@ -2420,8 +2409,8 @@ const staggerContainer = {
 };
 
 export default function Home() {
-  const [isDark, setIsDark] = useState(
-    () => document.documentElement.classList.contains("dark")
+  const [isDark, setIsDark] = useState(() =>
+    document.documentElement.classList.contains("dark"),
   );
 
   // Dark mode observer
@@ -2453,7 +2442,6 @@ export default function Home() {
     >
       {/* ====================== HERO SECTION WITH VIDEO ====================== */}
       <section className="relative min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-24 overflow-hidden">
-
         {/* Background Video */}
         <div className="absolute inset-0 z-0">
           <video
@@ -2463,8 +2451,7 @@ export default function Home() {
             playsInline
             className="absolute inset-0 w-full h-full object-cover"
           >
-            {/* Apna video file path yahan daalo — e.g. /hero-video.mp4 */}
-            <source src="../src/assets/herosectionvideo.mp4" />
+            <source src={heroVideo} type="video/mp4" />
             {/* Fallback for older browsers */}
             Your browser does not support the video tag.
           </video>
@@ -2472,9 +2459,11 @@ export default function Home() {
           {/* Overlay */}
           <div
             className={`absolute inset-0 z-10 transition-colors duration-700
-              ${isDark
-                ? "bg-gradient-to-br from-black/90 via-black/80 to-black/90"
-                : "bg-gradient-to-br from-slate-950/95 via-slate-950/90 to-black/70"}`}
+              ${
+                isDark
+                  ? "bg-gradient-to-br from-black/90 via-black/80 to-black/90"
+                  : "bg-gradient-to-br from-slate-950/95 via-slate-950/90 to-black/70"
+              }`}
           />
         </div>
 
@@ -2534,9 +2523,11 @@ export default function Home() {
 
               <button
                 className={`group px-10 py-5 border-2 rounded-full text-lg font-semibold transition-all
-                  ${isDark
-                    ? "border-red-600/60 text-red-400 hover:border-red-500 hover:text-red-300"
-                    : "border-white/80 text-white hover:bg-white/10"}`}
+                  ${
+                    isDark
+                      ? "border-red-600/60 text-red-400 hover:border-red-500 hover:text-red-300"
+                      : "border-white/80 text-white hover:bg-white/10"
+                  }`}
               >
                 VIEW OUR WORK
               </button>
@@ -2558,8 +2549,7 @@ export default function Home() {
             variants={fadeInUp}
             className={`text-5xl md:text-6xl font-bold text-center mb-6 ${headingClass}`}
           >
-            OUR{" "}
-            <span className={accentClass}>SERVICES</span>
+            OUR <span className={accentClass}>SERVICES</span>
           </motion.h2>
 
           <motion.p
@@ -2569,26 +2559,44 @@ export default function Home() {
             variants={fadeInUp}
             className={`text-xl text-center mb-16 max-w-3xl mx-auto ${bodyClass}`}
           >
-            Comprehensive IT &amp; BPO solutions — from development to support and
-            infrastructure
+            Comprehensive IT &amp; BPO solutions — from development to support
+            and infrastructure
           </motion.p>
 
           <div className="space-y-20">
             {/* IT Services */}
             <div>
-              <h3 className={`text-4xl md:text-5xl font-bold mb-8 text-center tracking-tight ${sectionHeadingAccent}`}>
+              <h3
+                className={`text-4xl md:text-5xl font-bold mb-8 text-center tracking-tight ${sectionHeadingAccent}`}
+              >
                 1. Information Technology Services
               </h3>
-              <p className={`text-lg md:text-xl mb-12 text-center max-w-4xl mx-auto leading-relaxed ${bodyClass}`}>
+              <p
+                className={`text-lg md:text-xl mb-12 text-center max-w-4xl mx-auto leading-relaxed ${bodyClass}`}
+              >
                 Supporting companies at every stage of the product lifecycle.
               </p>
 
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                 {/* Development Card */}
-                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className={cardClass}>
-                  <Code className={`w-12 h-12 md:w-14 md:h-14 mb-6 ${accentClass}`} />
-                  <h4 className={`text-xl md:text-2xl font-bold mb-5 ${headingClass}`}>Development</h4>
-                  <ul className={`text-sm md:text-base w-full max-w-xs space-y-3 ${bodyClass}`}>
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={fadeInUp}
+                  className={cardClass}
+                >
+                  <Code
+                    className={`w-12 h-12 md:w-14 md:h-14 mb-6 ${accentClass}`}
+                  />
+                  <h4
+                    className={`text-xl md:text-2xl font-bold mb-5 ${headingClass}`}
+                  >
+                    Development
+                  </h4>
+                  <ul
+                    className={`text-sm md:text-base w-full max-w-xs space-y-3 ${bodyClass}`}
+                  >
                     <li>• Web application development</li>
                     <li>• Mobile application development</li>
                     <li>• Secure, scalable &amp; user-friendly solutions</li>
@@ -2596,10 +2604,24 @@ export default function Home() {
                 </motion.div>
 
                 {/* Testing Card */}
-                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className={cardClass}>
-                  <ShieldCheck className={`w-12 h-12 md:w-14 md:h-14 mb-6 ${accentClass}`} />
-                  <h4 className={`text-xl md:text-2xl font-bold mb-5 ${headingClass}`}>Testing</h4>
-                  <ul className={`text-sm md:text-base w-full max-w-xs space-y-3 ${bodyClass}`}>
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={fadeInUp}
+                  className={cardClass}
+                >
+                  <ShieldCheck
+                    className={`w-12 h-12 md:w-14 md:h-14 mb-6 ${accentClass}`}
+                  />
+                  <h4
+                    className={`text-xl md:text-2xl font-bold mb-5 ${headingClass}`}
+                  >
+                    Testing
+                  </h4>
+                  <ul
+                    className={`text-sm md:text-base w-full max-w-xs space-y-3 ${bodyClass}`}
+                  >
                     <li>• Web application testing</li>
                     <li>• Mobile application testing</li>
                     <li>• Quality, performance &amp; security assurance</li>
@@ -2607,19 +2629,48 @@ export default function Home() {
                 </motion.div>
 
                 {/* L2 Support Card */}
-                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className={cardClass}>
-                  <Users className={`w-12 h-12 md:w-14 md:h-14 mb-6 ${accentClass}`} />
-                  <h4 className={`text-xl md:text-2xl font-bold mb-5 ${headingClass}`}>L2 Support</h4>
-                  <p className={`text-sm md:text-base leading-relaxed max-w-xs ${bodyClass}`}>
-                    Advanced troubleshooting, in-depth diagnosis &amp; root cause resolution.
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={fadeInUp}
+                  className={cardClass}
+                >
+                  <Users
+                    className={`w-12 h-12 md:w-14 md:h-14 mb-6 ${accentClass}`}
+                  />
+                  <h4
+                    className={`text-xl md:text-2xl font-bold mb-5 ${headingClass}`}
+                  >
+                    L2 Support
+                  </h4>
+                  <p
+                    className={`text-sm md:text-base leading-relaxed max-w-xs ${bodyClass}`}
+                  >
+                    Advanced troubleshooting, in-depth diagnosis &amp; root
+                    cause resolution.
                   </p>
                 </motion.div>
 
                 {/* Product Assistance Card */}
-                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className={cardClass}>
-                  <Server className={`w-12 h-12 md:w-14 md:h-14 mb-6 ${accentClass}`} />
-                  <h4 className={`text-xl md:text-2xl font-bold mb-5 ${headingClass}`}>Product Assistance</h4>
-                  <ul className={`text-sm md:text-base w-full max-w-xs space-y-3 ${bodyClass}`}>
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={fadeInUp}
+                  className={cardClass}
+                >
+                  <Server
+                    className={`w-12 h-12 md:w-14 md:h-14 mb-6 ${accentClass}`}
+                  />
+                  <h4
+                    className={`text-xl md:text-2xl font-bold mb-5 ${headingClass}`}
+                  >
+                    Product Assistance
+                  </h4>
+                  <ul
+                    className={`text-sm md:text-base w-full max-w-xs space-y-3 ${bodyClass}`}
+                  >
                     <li>• Continuous support &amp; maintenance</li>
                     <li>• Ticket &amp; incident management</li>
                     <li>• Change management &amp; SLA tracking</li>
@@ -2630,39 +2681,87 @@ export default function Home() {
 
             {/* BPO Services */}
             <div>
-              <h3 className={`text-4xl md:text-5xl font-bold mb-8 text-center tracking-tight ${sectionHeadingAccent}`}>
+              <h3
+                className={`text-4xl md:text-5xl font-bold mb-8 text-center tracking-tight ${sectionHeadingAccent}`}
+              >
                 2. Business Process Outsourcing (BPO) Services
               </h3>
-              <p className={`text-lg md:text-xl mb-12 text-center max-w-3xl mx-auto leading-relaxed ${bodyClass}`}>
-                Streamline operations and enhance customer engagement with reliable support.
+              <p
+                className={`text-lg md:text-xl mb-12 text-center max-w-3xl mx-auto leading-relaxed ${bodyClass}`}
+              >
+                Streamline operations and enhance customer engagement with
+                reliable support.
               </p>
 
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className={cardClass}>
-                  <Headphones className={`w-12 h-12 md:w-14 md:h-14 mb-6 ${accentClass}`} />
-                  <h4 className={`text-xl md:text-2xl font-bold mb-5 ${headingClass}`}>Voice, Chat &amp; Email</h4>
-                  <ul className={`text-sm md:text-base w-full max-w-xs space-y-3 ${bodyClass}`}>
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={fadeInUp}
+                  className={cardClass}
+                >
+                  <Headphones
+                    className={`w-12 h-12 md:w-14 md:h-14 mb-6 ${accentClass}`}
+                  />
+                  <h4
+                    className={`text-xl md:text-2xl font-bold mb-5 ${headingClass}`}
+                  >
+                    Voice, Chat &amp; Email
+                  </h4>
+                  <ul
+                    className={`text-sm md:text-base w-full max-w-xs space-y-3 ${bodyClass}`}
+                  >
                     <li>• Inbound &amp; outbound voice support</li>
                     <li>• Real-time chat assistance</li>
                     <li>• Structured email &amp; ticketing</li>
                   </ul>
                 </motion.div>
 
-                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className={cardClass}>
-                  <BarChart3 className={`w-12 h-12 md:w-14 md:h-14 mb-6 ${accentClass}`} />
-                  <h4 className={`text-xl md:text-2xl font-bold mb-5 ${headingClass}`}>Cataloguing &amp; Enrichment</h4>
-                  <ul className={`text-sm md:text-base w-full max-w-xs space-y-3 ${bodyClass}`}>
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={fadeInUp}
+                  className={cardClass}
+                >
+                  <BarChart3
+                    className={`w-12 h-12 md:w-14 md:h-14 mb-6 ${accentClass}`}
+                  />
+                  <h4
+                    className={`text-xl md:text-2xl font-bold mb-5 ${headingClass}`}
+                  >
+                    Cataloguing &amp; Enrichment
+                  </h4>
+                  <ul
+                    className={`text-sm md:text-base w-full max-w-xs space-y-3 ${bodyClass}`}
+                  >
                     <li>• Product descriptions, tags &amp; keywords</li>
                     <li>• Data validation &amp; cleaning</li>
                     <li>• Category &amp; attribute enrichment</li>
                   </ul>
                 </motion.div>
 
-                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className={cardClass}>
-                  <CheckCircle className={`w-12 h-12 md:w-14 md:h-14 mb-6 ${accentClass}`} />
-                  <h4 className={`text-xl md:text-2xl font-bold mb-5 ${headingClass}`}>Quality Assurance</h4>
-                  <p className={`text-sm md:text-base leading-relaxed max-w-xs ${bodyClass}`}>
-                    Call/chat audits, SOP/SLA compliance, feedback &amp; continuous improvement.
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={fadeInUp}
+                  className={cardClass}
+                >
+                  <CheckCircle
+                    className={`w-12 h-12 md:w-14 md:h-14 mb-6 ${accentClass}`}
+                  />
+                  <h4
+                    className={`text-xl md:text-2xl font-bold mb-5 ${headingClass}`}
+                  >
+                    Quality Assurance
+                  </h4>
+                  <p
+                    className={`text-sm md:text-base leading-relaxed max-w-xs ${bodyClass}`}
+                  >
+                    Call/chat audits, SOP/SLA compliance, feedback &amp;
+                    continuous improvement.
                   </p>
                 </motion.div>
               </div>
@@ -2670,12 +2769,15 @@ export default function Home() {
 
             {/* Infrastructure */}
             <div className="text-center max-w-5xl mx-auto">
-              <h3 className={`text-4xl md:text-5xl font-bold mb-8 tracking-tight ${sectionHeadingAccent}`}>
+              <h3
+                className={`text-4xl md:text-5xl font-bold mb-8 tracking-tight ${sectionHeadingAccent}`}
+              >
                 3. Support &amp; Infrastructure Setup
               </h3>
               <p className={`text-lg md:text-xl leading-relaxed ${bodyClass}`}>
-                End-to-end BPO-ready setup: modern offices, high-speed networks, advanced telephony,
-                servers, workstations, robust security, and power backup.
+                End-to-end BPO-ready setup: modern offices, high-speed networks,
+                advanced telephony, servers, workstations, robust security, and
+                power backup.
               </p>
             </div>
           </div>
@@ -2694,8 +2796,7 @@ export default function Home() {
             variants={fadeInUp}
             className={`text-5xl md:text-6xl font-bold text-center mb-16 ${headingClass}`}
           >
-            WHY{" "}
-            <span className={accentClass}>CHOOSE US</span>
+            WHY <span className={accentClass}>CHOOSE US</span>
           </motion.h2>
 
           <div className="grid md:grid-cols-3 gap-10 lg:gap-16 text-center">
@@ -2723,9 +2824,11 @@ export default function Home() {
                 viewport={{ once: true }}
                 variants={fadeInUp}
                 className={`p-10 rounded-3xl border transition-all
-                  ${isDark
-                    ? "bg-gray-900 border-gray-800 hover:border-red-500/30"
-                    : "bg-white border-gray-200 shadow-md hover:shadow-lg"}`}
+                  ${
+                    isDark
+                      ? "bg-gray-900 border-gray-800 hover:border-red-500/30"
+                      : "bg-white border-gray-200 shadow-md hover:shadow-lg"
+                  }`}
               >
                 <div
                   className={`inline-flex items-center justify-center w-20 h-20 rounded-2xl mb-8 mx-auto
@@ -2736,7 +2839,9 @@ export default function Home() {
                 <h3 className={`text-3xl font-bold mb-5 ${headingClass}`}>
                   {item.title}
                 </h3>
-                <p className={`leading-relaxed ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+                <p
+                  className={`leading-relaxed ${isDark ? "text-gray-400" : "text-gray-600"}`}
+                >
                   {item.desc}
                 </p>
               </motion.div>
