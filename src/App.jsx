@@ -50,11 +50,7 @@ const App = () => {
   return (
     <HelmetProvider>
       <BrowserRouter>
-        {/* <ScrollToTop /> */}
-        {/* <Helmet>
-          <link rel="canonical" href="https://www.atlaknots.com/" />
-          <title>AtlaKnots - Digital Solutions</title>
-        </Helmet> */}
+       
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Layout />}>
