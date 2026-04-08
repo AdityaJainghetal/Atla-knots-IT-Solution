@@ -218,6 +218,7 @@ import {
   Sun, Moon 
 } from "lucide-react";
 
+
 // Placeholder images
 const images = {
   hero: "https://squaredup.com/_next/image/?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fz7wg6mcy%2Fproduction-2025%2F9c2a4a40652ca902db2014a6691f5cd810b9a050-1080x588.png%3Fq%3D100%26fit%3Dmax%26auto%3Dformat&w=3840&q=75",
