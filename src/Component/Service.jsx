@@ -1327,6 +1327,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, ArrowUp } from 'lucide-react';
+import serviceimg1 from "../assets/Images/service.jpeg"
+import serviceimg2 from "../assets/Images/service2.jpeg"
+
 
 // Animation variants
 const fadeInUp = {
@@ -1481,7 +1484,7 @@ const Service = () => {
             <div className="w-full lg:w-1/2 rounded-3xl overflow-hidden border shadow-2xl relative group">
               <div className="w-full aspect-[4/5] lg:aspect-auto lg:h-[720px] overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80"
+                  src={serviceimg2}
                   alt="Modern development"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
@@ -1553,7 +1556,7 @@ const Service = () => {
             <div className="w-full lg:w-1/2 rounded-3xl overflow-hidden border shadow-2xl relative group">
               <div className="w-full aspect-[4/5] lg:aspect-auto lg:h-[620px] overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1200&q=80"
+                  src={serviceimg1}
                   alt="BPO Support"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
