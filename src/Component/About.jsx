@@ -4380,7 +4380,7 @@ import { useNavigate } from "react-router-dom";
 import img1 from "./Mobile/img/mobileviewpart1.png";
 import img6 from "./Mobile/img/mobileview.png";
 import FounderImg from "./Mobile/img/nagar.jpg";
-import MdImg from "./Mobile/img/Md.jpg";
+import MdImg from "../assets/Images/managerdirector.jpeg";
 import CeoImg from "./Mobile/img/CEO.jpg";
 import CtoImg from "./Mobile/img/CTO.jpg";
 import OurTeam from "./Mobile/img/OurTeam.jpg";
@@ -5269,34 +5269,38 @@ export default function About() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 <LeaderCard
                   isDark={isDark}
-                  img={FounderImg}
-                  alt="Rakesh Nagar - Founder"
-                  name="Rakesh Nagar"
+                  img={CeoImg}
+                  alt="Ghulam Haider - Founder"
+                  name="Ghulam Haider"
                   role="Founder"
                   exp="15+ Years of Experience"
                   desc="Visionary leader with over 15 years of experience in IT and digital transformation, steering the company's strategic direction."
                   linkedIn="https://www.linkedin.com/in/aley-nabi-9396b31b/"
                   github="https://github.com/aleynabi-atlaknots"
                 />
+
+             
+           
                 <LeaderCard
                   isDark={isDark}
-                  img={MdImg}
-                  alt="Aley Nabi - Managing Director"
-                  name="Aley Nabi"
-                  role="Managing Director"
-                  exp="10+ Years of Experience"
-                  desc="Expert in operational excellence and client relations, ensuring seamless delivery of our services while fostering strong partnerships."
-                  linkedIn="https://www.linkedin.com/in/aley-nabi-profile"
+                  img={FounderImg}
+                  alt="Rakesh Nagar - CEO"
+                  name="Rakesh Nagar"
+                  role="Chief Executive Officer"
+                  exp="15+ Years of Experience"
+                  desc="Strategic leader with over 15 years of experience in driving business growth and innovation."
+                  linkedIn="https://www.linkedin.com/in/aley-nabi-9396b31b/"
                   github="https://github.com/aleynabi-atlaknots"
                 />
-                <LeaderCard
+
+                         <LeaderCard
                   isDark={isDark}
-                  img={CeoImg}
-                  alt="Ghulam Haider - CEO"
-                  name="Ghulam Haider"
-                  role="Chief Executive Officer"
-                  exp="10+ Years of Experience"
-                  desc="Driving strategic growth, innovation, and strong client partnerships while shaping the company's long-term vision and success."
+                  img={MdImg}
+                  alt="Alquma jabeen - Managing Director"
+                  name="Alquma jabeen"
+                  role="Managing Director"
+                  exp="7+ Years of Experience"
+                  desc="With over 7 years of expertise in the Banking sector and 3+ years of experience in Business Process Outsourcing (BPO)"
                   linkedIn="https://www.linkedin.com/in/aley-nabi-profile"
                   github="https://github.com/aleynabi-atlaknots"
                 />
@@ -5311,6 +5315,9 @@ export default function About() {
                   linkedIn="https://www.linkedin.com/in/aley-nabi-profile"
                   github="https://github.com/aleynabi-atlaknots"
                 />
+
+
+             
               </div>
             </div>
           </section>
