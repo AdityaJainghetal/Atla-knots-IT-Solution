@@ -303,12 +303,11 @@
 //   );
 // }
 
-
-
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Menu, X, ChevronDown, Sun, Moon } from "lucide-react";
 import ATLAknots from "./Mobile/img/ITLogo.png";
+import { useTheme } from "../context/ThemeContext.jsx";
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -357,7 +356,10 @@ const navItems = [
         hasDropdown: true,
         dropdownItems: [
           { name: "UI/UX Design", path: "/uidesign" },
-          { name: "Web Design & Development", path: "/websitedesigndevelopment" },
+          {
+            name: "Web Design & Development",
+            path: "/websitedesigndevelopment",
+          },
           { name: "Branding", path: "/contentwritingbranding" },
         ],
       },
@@ -374,32 +376,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const [openSubDropdown, setOpenSubDropdown] = useState(null);
-  const [isDark, setIsDark] = useState(true);
-
-  // Load theme from localStorage
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "light") {
-      setIsDark(false);
-      document.documentElement.classList.remove("dark");
-    } else {
-      setIsDark(true);
-      document.documentElement.classList.add("dark");
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    const newIsDark = !isDark;
-    setIsDark(newIsDark);
-
-    if (newIsDark) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  };
+  const { isDark, toggleTheme } = useTheme();
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -410,12 +387,13 @@ export default function Navbar() {
   };
 
   return (
-    <nav 
+    <nav
       className={`
         sticky top-0 z-50 border-b transition-all duration-300
-        ${isDark 
-          ? "bg-black/90 border-gray-800" 
-          : "bg-white/95 border-gray-200 shadow-sm"
+        ${
+          isDark
+            ? "bg-black/90 border-gray-800"
+            : "bg-white/95 border-gray-200 shadow-sm"
         }
       `}
     >
@@ -439,9 +417,10 @@ export default function Navbar() {
                   onClick={item.name === "Home" ? undefined : undefined} // Removed animation effect for Home
                   className={`
                     px-4 py-5 flex items-center gap-1.5 transition-colors duration-150
-                    ${isDark 
-                      ? "text-gray-200 hover:text-red-400" 
-                      : "text-gray-700 hover:text-blue-600 font-medium"
+                    ${
+                      isDark
+                        ? "text-gray-200 hover:text-red-400"
+                        : "text-gray-700 hover:text-blue-600 font-medium"
                     }
                   `}
                 >
@@ -463,9 +442,10 @@ export default function Navbar() {
                       border rounded-lg shadow-xl transition-all duration-200 ease-out
                       opacity-0 scale-95 pointer-events-none
                       group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto
-                      ${isDark 
-                        ? "bg-black/95 border-gray-700" 
-                        : "bg-white border-gray-200 shadow-lg"
+                      ${
+                        isDark
+                          ? "bg-black/95 border-gray-700"
+                          : "bg-white border-gray-200 shadow-lg"
                       }
                     `}
                   >
@@ -476,9 +456,10 @@ export default function Navbar() {
                           className={`
                             flex justify-between items-center px-4 py-2.5 
                             transition-colors duration-150
-                            ${isDark 
-                              ? "text-gray-200 hover:bg-red-900/40" 
-                              : "text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                            ${
+                              isDark
+                                ? "text-gray-200 hover:bg-red-900/40"
+                                : "text-gray-700 hover:bg-blue-50 hover:text-blue-600"
                             }
                           `}
                         >
@@ -500,9 +481,10 @@ export default function Navbar() {
                               transition-all duration-200 ease-out
                               opacity-0 scale-95 pointer-events-none
                               group-hover/sub:opacity-100 group-hover/sub:scale-100 group-hover/sub:pointer-events-auto
-                              ${isDark 
-                                ? "bg-black/95 border-gray-700" 
-                                : "bg-white border-gray-200"
+                              ${
+                                isDark
+                                  ? "bg-black/95 border-gray-700"
+                                  : "bg-white border-gray-200"
                               }
                             `}
                           >
@@ -512,9 +494,10 @@ export default function Navbar() {
                                 to={child.path}
                                 className={`
                                   block px-4 py-2.5 transition-colors duration-150
-                                  ${isDark 
-                                    ? "text-gray-200 hover:bg-red-900/40" 
-                                    : "text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                                  ${
+                                    isDark
+                                      ? "text-gray-200 hover:bg-red-900/40"
+                                      : "text-gray-700 hover:bg-blue-50 hover:text-blue-600"
                                   }
                                 `}
                               >
@@ -538,9 +521,10 @@ export default function Navbar() {
               onClick={toggleTheme}
               className={`
                 p-2 rounded-full transition-all duration-150
-                ${isDark 
-                  ? "text-gray-200 hover:text-red-400 hover:bg-gray-800" 
-                  : "text-gray-700 hover:text-blue-600 hover:bg-gray-100"
+                ${
+                  isDark
+                    ? "text-gray-200 hover:text-red-400 hover:bg-gray-800"
+                    : "text-gray-700 hover:text-blue-600 hover:bg-gray-100"
                 }
               `}
               title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
@@ -550,8 +534,8 @@ export default function Navbar() {
 
             {/* MOBILE BUTTON */}
             <div className="md:hidden">
-              <button 
-                onClick={toggleMenu} 
+              <button
+                onClick={toggleMenu}
                 className={isDark ? "text-gray-200" : "text-gray-700"}
               >
                 {isOpen ? <X size={28} /> : <Menu size={28} />}
@@ -563,13 +547,10 @@ export default function Navbar() {
 
       {/* MOBILE MENU */}
       {isOpen && (
-        <div 
+        <div
           className={`
             md:hidden px-5 py-6 space-y-2 border-t
-            ${isDark 
-              ? "bg-black border-gray-800" 
-              : "bg-white border-gray-200"
-            }
+            ${isDark ? "bg-black border-gray-800" : "bg-white border-gray-200"}
           `}
         >
           {navItems.map((item) => (
@@ -580,10 +561,7 @@ export default function Navbar() {
                   onClick={closeAll}
                   className={`
                     py-3 flex-1 transition-colors
-                    ${isDark 
-                      ? "text-gray-200" 
-                      : "text-gray-800 font-medium"
-                    }
+                    ${isDark ? "text-gray-200" : "text-gray-800 font-medium"}
                   `}
                 >
                   {item.name}
@@ -592,7 +570,9 @@ export default function Navbar() {
                 {item.hasDropdown && (
                   <button
                     onClick={() =>
-                      setOpenDropdown(openDropdown === item.name ? null : item.name)
+                      setOpenDropdown(
+                        openDropdown === item.name ? null : item.name,
+                      )
                     }
                   >
                     <ChevronDown
@@ -625,7 +605,7 @@ export default function Navbar() {
                           <button
                             onClick={() =>
                               setOpenSubDropdown(
-                                openSubDropdown === sub.name ? null : sub.name
+                                openSubDropdown === sub.name ? null : sub.name,
                               )
                             }
                           >

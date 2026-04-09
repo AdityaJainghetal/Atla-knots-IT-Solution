@@ -25,16 +25,16 @@
 // // export default function ERPDevelopment() {
 
 // //   const [showScrollTop, setShowScrollTop] = useState(false);
-  
+
 // //     useEffect(() => {
 // //       const handleScroll = () => {
 // //         setShowScrollTop(window.scrollY > 400);
 // //       };
-  
+
 // //       window.addEventListener('scroll', handleScroll);
 // //       return () => window.removeEventListener('scroll', handleScroll);
 // //     }, []);
-  
+
 // //     const scrollToTop = () => {
 // //       window.scrollTo({
 // //         top: 0,
@@ -358,18 +358,18 @@
 // //         }`}
 // //         aria-label="Scroll back to top"
 // //       >
-// //         <svg 
-// //           className="w-6 h-6" 
-// //           fill="none" 
-// //           stroke="currentColor" 
-// //           viewBox="0 0 24 24" 
+// //         <svg
+// //           className="w-6 h-6"
+// //           fill="none"
+// //           stroke="currentColor"
+// //           viewBox="0 0 24 24"
 // //           xmlns="http://www.w3.org/2000/svg"
 // //         >
-// //           <path 
-// //             strokeLinecap="round" 
-// //             strokeLinejoin="round" 
-// //             strokeWidth={2} 
-// //             d="M5 10l7-7m0 0l7 7m-7-7v18" 
+// //           <path
+// //             strokeLinecap="round"
+// //             strokeLinejoin="round"
+// //             strokeWidth={2}
+// //             d="M5 10l7-7m0 0l7 7m-7-7v18"
 // //           />
 // //         </svg>
 // //       </button>
@@ -382,7 +382,6 @@
 // import { ArrowRight, Database, BarChart3, Settings, Globe, CheckCircle } from "lucide-react";
 // import backgroundimage from "../../assets/Images/ERPbackground.jpeg";
 // import industury from "../../assets/Images/ERPbackground.jpeg";
-
 
 // const images = {
 //   hero: backgroundimage,
@@ -831,24 +830,42 @@
 
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Sun, Moon } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { useTheme } from "../../context/ThemeContext";
 import backgroundimage from "../../assets/Images/ERPbackground.jpeg";
 import industury from "../../assets/Images/ERPbackground.jpeg";
 
 const images = {
   hero: backgroundimage,
   team: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80",
-  dashboard: "https://images.unsplash.com/photo-1551288049-b01e1b7d0d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80",
-  process: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80",
+  dashboard:
+    "https://images.unsplash.com/photo-1551288049-b01e1b7d0d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80",
+  process:
+    "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80",
   industry: industury,
 };
 
 const industries = [
-  "Advertising and Media", "Construction & Builders", "Education", "Finance and Insurance",
-  "Medical & Healthcare", "E-Commerce", "Entertainment", "Real Estate", "Hospitality",
-  "Engineering Services", "Health and Wellness", "Technology", "Heating & Cooling",
-  "Auto Mechanics", "Oil and Gas", "Landscaping", "Property Management",
-  "Business Consulting", "Home Renovation", "Beauty"
+  "Advertising and Media",
+  "Construction & Builders",
+  "Education",
+  "Finance and Insurance",
+  "Medical & Healthcare",
+  "E-Commerce",
+  "Entertainment",
+  "Real Estate",
+  "Hospitality",
+  "Engineering Services",
+  "Health and Wellness",
+  "Technology",
+  "Heating & Cooling",
+  "Auto Mechanics",
+  "Oil and Gas",
+  "Landscaping",
+  "Property Management",
+  "Business Consulting",
+  "Home Renovation",
+  "Beauty",
 ];
 
 const fadeInUp = {
@@ -862,34 +879,8 @@ const staggerContainer = {
 };
 
 export default function ERPDevelopment() {
-  const [isDark, setIsDark] = useState(true);
+  const { isDark } = useTheme();
   const [showScrollTop, setShowScrollTop] = useState(false);
-
-  // Initialize theme from localStorage
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "light") {
-      setIsDark(false);
-      document.documentElement.classList.remove("dark");
-    } else {
-      setIsDark(true);
-      document.documentElement.classList.add("dark");
-    }
-  }, []);
-
-  // Theme Toggle Function
-  const toggleTheme = () => {
-    const newMode = !isDark;
-    setIsDark(newMode);
-
-    if (newMode) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  };
 
   // Scroll to top
   useEffect(() => {
@@ -905,15 +896,14 @@ export default function ERPDevelopment() {
   };
 
   return (
-    <div className={`min-h-screen overflow-hidden transition-colors duration-700 
-      ${isDark 
-        ? "bg-gradient-to-b from-gray-950 via-black to-gray-950 text-white" 
-        : "bg-gradient-to-b from-gray-50 via-white to-gray-100 text-gray-900"
-      }`}>
-
-      {/* Theme Toggle Button */}
-   
-
+    <div
+      className={`min-h-screen overflow-hidden transition-colors duration-700 
+      ${
+        isDark
+          ? "bg-gradient-to-b from-gray-950 via-black to-gray-950 text-white"
+          : "bg-gradient-to-b from-gray-50 via-white to-gray-100 text-gray-900"
+      }`}
+    >
       {/* ====================== HERO SECTION ====================== */}
       <section className="relative min-h-[90vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-24">
         <div className="absolute inset-0">
@@ -922,11 +912,13 @@ export default function ERPDevelopment() {
             alt="ERP software dashboard showing business growth"
             className="w-full h-full object-cover opacity-25 dark:opacity-30 brightness-50"
           />
-          <div className={`absolute inset-0 bg-gradient-to-t ${
-            isDark 
-              ? "from-black via-black/80 to-transparent" 
-              : "from-white/90 via-white/80 to-transparent"
-          }`} />
+          <div
+            className={`absolute inset-0 bg-gradient-to-t ${
+              isDark
+                ? "from-black via-black/80 to-transparent"
+                : "from-white/90 via-white/80 to-transparent"
+            }`}
+          />
         </div>
 
         <motion.div
@@ -959,14 +951,18 @@ export default function ERPDevelopment() {
             Partner with the Leading ERP software development company in India
           </motion.p>
 
-          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-6 justify-center">
+          <motion.div
+            variants={fadeInUp}
+            className="flex flex-col sm:flex-row gap-6 justify-center"
+          >
             <button className="px-12 py-6 bg-gradient-to-r from-red-600 to-red-800 text-white rounded-full text-xl md:text-2xl font-bold shadow-2xl shadow-red-900/60 hover:shadow-red-700/80 hover:scale-105 transition-all flex items-center gap-3 group">
-              Request a Quote <ArrowRight className="w-7 h-7 group-hover:translate-x-2 transition-transform" />
+              Request a Quote{" "}
+              <ArrowRight className="w-7 h-7 group-hover:translate-x-2 transition-transform" />
             </button>
             <button
               className={`px-12 py-6 border-2 rounded-full text-xl md:text-2xl font-bold transition-all ${
-                isDark 
-                  ? "border-red-600/70 text-red-400 hover:bg-red-950/50" 
+                isDark
+                  ? "border-red-600/70 text-red-400 hover:bg-red-950/50"
                   : "border-red-600 text-red-600 hover:bg-red-50"
               }`}
             >
@@ -977,7 +973,9 @@ export default function ERPDevelopment() {
       </section>
 
       {/* ====================== FUEL BUSINESS SUCCESS ====================== */}
-      <section className={`py-24 px-4 sm:px-6 lg:px-8 ${isDark ? "bg-black/50" : "bg-gray-100"}`}>
+      <section
+        className={`py-24 px-4 sm:px-6 lg:px-8 ${isDark ? "bg-black/50" : "bg-gray-100"}`}
+      >
         <div className="max-w-7xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 40 }}
@@ -985,7 +983,8 @@ export default function ERPDevelopment() {
             viewport={{ once: true }}
             className={`text-4xl md:text-6xl font-black text-center mb-12 ${isDark ? "text-white" : "text-gray-900"}`}
           >
-            Fuel Business Success with Top ERP Software Development Services in India
+            Fuel Business Success with Top ERP Software Development Services in
+            India
           </motion.h2>
 
           <div className="grid md:grid-cols-3 gap-8 mb-16">
@@ -994,18 +993,25 @@ export default function ERPDevelopment() {
                 key={i}
                 variants={fadeInUp}
                 className={`border border-red-900/40 rounded-2xl p-10 text-center hover:border-red-600/60 hover:shadow-2xl transition-all group ${
-                  isDark 
-                    ? "bg-gradient-to-br from-gray-900 to-black" 
+                  isDark
+                    ? "bg-gradient-to-br from-gray-900 to-black"
                     : "bg-white shadow-md"
                 }`}
               >
-                <h3 className={`text-4xl font-black mb-6 text-red-600 dark:text-red-400 group-hover:text-red-500 transition-colors`}>
+                <h3
+                  className={`text-4xl font-black mb-6 text-red-600 dark:text-red-400 group-hover:text-red-500 transition-colors`}
+                >
                   {title}
                 </h3>
-                <p className={`text-lg leading-relaxed ${isDark ? "text-gray-300" : "text-gray-700"}`}>
-                  {title === "Be Unique" && "Get ERP solutions tailored precisely to your business workflows"}
-                  {title === "Be Scalable" && "Enable growth with flexible and integrated systems"}
-                  {title === "Be Future-Ready" && "Streamline operations through advanced technologies"}
+                <p
+                  className={`text-lg leading-relaxed ${isDark ? "text-gray-300" : "text-gray-700"}`}
+                >
+                  {title === "Be Unique" &&
+                    "Get ERP solutions tailored precisely to your business workflows"}
+                  {title === "Be Scalable" &&
+                    "Enable growth with flexible and integrated systems"}
+                  {title === "Be Future-Ready" &&
+                    "Streamline operations through advanced technologies"}
                 </p>
               </motion.div>
             ))}
@@ -1017,14 +1023,32 @@ export default function ERPDevelopment() {
             viewport={{ once: true }}
             className={`text-xl max-w-5xl mx-auto leading-relaxed text-center mb-12 ${isDark ? "text-gray-300" : "text-gray-700"}`}
           >
-            With years of experience, Atla Knots IT Solutions is a full-service ERP software development company in India, delivering intelligent, scalable, and logical enterprise solutions. As a trusted custom ERP software development company, we focus on creating efficient and powerful ERP software that helps businesses automate processes, enhance decision-making, and drive productivity.
-            <br /><br />
-            Whether you are a growing startup or an established enterprise, our expertise in custom ERP software development ensures your system is built around your unique operations. From financials and inventory to HR, CRM, and beyond, we build custom ERP software that unifies your departments and delivers real-time visibility.
-            <br /><br />
-            At Atla Knots IT Solutions, a top ERP software development company, we deliver secure, custom ERP software solutions tailored to your business goals and growth.
+            With years of experience, Atla Knots IT Solutions is a full-service
+            ERP software development company in India, delivering intelligent,
+            scalable, and logical enterprise solutions. As a trusted custom ERP
+            software development company, we focus on creating efficient and
+            powerful ERP software that helps businesses automate processes,
+            enhance decision-making, and drive productivity.
+            <br />
+            <br />
+            Whether you are a growing startup or an established enterprise, our
+            expertise in custom ERP software development ensures your system is
+            built around your unique operations. From financials and inventory
+            to HR, CRM, and beyond, we build custom ERP software that unifies
+            your departments and delivers real-time visibility.
+            <br />
+            <br />
+            At Atla Knots IT Solutions, a top ERP software development company,
+            we deliver secure, custom ERP software solutions tailored to your
+            business goals and growth.
           </motion.p>
 
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="text-center"
+          >
             <button className="px-14 py-7 bg-gradient-to-r from-red-600 to-red-800 text-white rounded-full text-2xl font-bold shadow-2xl shadow-red-900/60 hover:shadow-red-700/80 hover:scale-105 transition-all">
               Connect with India's Best ERP Software Development Company →
             </button>
@@ -1041,7 +1065,10 @@ export default function ERPDevelopment() {
             viewport={{ once: true }}
             className={`text-4xl md:text-6xl font-black text-center mb-16 ${isDark ? "text-white" : "text-gray-900"}`}
           >
-            A Complete Suite of <span className="text-red-600 dark:text-red-500">ERP Software Services</span>
+            A Complete Suite of{" "}
+            <span className="text-red-600 dark:text-red-500">
+              ERP Software Services
+            </span>
           </motion.h2>
 
           <motion.p
@@ -1050,7 +1077,10 @@ export default function ERPDevelopment() {
             viewport={{ once: true }}
             className={`text-xl text-center mb-16 max-w-5xl mx-auto leading-relaxed ${isDark ? "text-gray-300" : "text-gray-700"}`}
           >
-            We deliver fast, reliable, and high-impact ERP software development services that help businesses streamline operations and drive growth. As a leading ERP software development company, we specialize in custom ERP software tailored to your unique needs.
+            We deliver fast, reliable, and high-impact ERP software development
+            services that help businesses streamline operations and drive
+            growth. As a leading ERP software development company, we specialize
+            in custom ERP software tailored to your unique needs.
           </motion.p>
 
           <motion.img
@@ -1064,12 +1094,30 @@ export default function ERPDevelopment() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { title: "Custom ERP Software Development", desc: "We deliver tailored ERP solutions that streamline operations, built by a trusted ERP software development company in India." },
-              { title: "Enterprise ERP Software", desc: "As a custom ERP software development company, we build CRM-integrated ERP systems to streamline enterprise processes and keep all teams connected efficiently." },
-              { title: "ERP Development Consultation", desc: "As a custom ERP software development company, we help strategize, design, test, and deploy robust ERP software tailored to your enterprise needs." },
-              { title: "Custom Dashboard Design", desc: "Our ERP software development company builds custom ERP software dashboards to ensure comprehensible data, crucial metrics, and smooth access for smarter decisions." },
-              { title: "ERP Data Migration", desc: "Our ERP software development company ensures secure, fast ERP data migration across systems with expert support from a custom ERP software development company." },
-              { title: "ERP Application Development", desc: "Our ERP software development company builds feature-rich ERP apps to streamline tasks efficiently, powered by a leading custom ERP software development company." },
+              {
+                title: "Custom ERP Software Development",
+                desc: "We deliver tailored ERP solutions that streamline operations, built by a trusted ERP software development company in India.",
+              },
+              {
+                title: "Enterprise ERP Software",
+                desc: "As a custom ERP software development company, we build CRM-integrated ERP systems to streamline enterprise processes and keep all teams connected efficiently.",
+              },
+              {
+                title: "ERP Development Consultation",
+                desc: "As a custom ERP software development company, we help strategize, design, test, and deploy robust ERP software tailored to your enterprise needs.",
+              },
+              {
+                title: "Custom Dashboard Design",
+                desc: "Our ERP software development company builds custom ERP software dashboards to ensure comprehensible data, crucial metrics, and smooth access for smarter decisions.",
+              },
+              {
+                title: "ERP Data Migration",
+                desc: "Our ERP software development company ensures secure, fast ERP data migration across systems with expert support from a custom ERP software development company.",
+              },
+              {
+                title: "ERP Application Development",
+                desc: "Our ERP software development company builds feature-rich ERP apps to streamline tasks efficiently, powered by a leading custom ERP software development company.",
+              },
             ].map((service, idx) => (
               <motion.div
                 key={idx}
@@ -1078,13 +1126,21 @@ export default function ERPDevelopment() {
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
                 className={`rounded-2xl p-10 transition-all duration-300 ${
-                  isDark 
-                    ? "bg-gray-900/70 backdrop-blur-sm border border-red-900/40 hover:border-red-600/60 hover:shadow-2xl hover:shadow-red-900/30" 
+                  isDark
+                    ? "bg-gray-900/70 backdrop-blur-sm border border-red-900/40 hover:border-red-600/60 hover:shadow-2xl hover:shadow-red-900/30"
                     : "bg-white border border-gray-200 shadow-lg hover:shadow-xl text-gray-900"
                 }`}
               >
-                <h3 className={`text-2xl md:text-3xl font-bold mb-6 text-center text-red-600 dark:text-red-500`}>{service.title}</h3>
-                <p className={`text-lg leading-relaxed text-center ${isDark ? "text-gray-300" : "text-gray-700"}`}>{service.desc}</p>
+                <h3
+                  className={`text-2xl md:text-3xl font-bold mb-6 text-center text-red-600 dark:text-red-500`}
+                >
+                  {service.title}
+                </h3>
+                <p
+                  className={`text-lg leading-relaxed text-center ${isDark ? "text-gray-300" : "text-gray-700"}`}
+                >
+                  {service.desc}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -1092,7 +1148,9 @@ export default function ERPDevelopment() {
       </section>
 
       {/* ====================== THE PROCESS BEHIND SMARTER SYSTEMS ====================== */}
-      <section className={`py-24 px-4 sm:px-6 lg:px-8 ${isDark ? "bg-black/50" : "bg-gray-100"}`}>
+      <section
+        className={`py-24 px-4 sm:px-6 lg:px-8 ${isDark ? "bg-black/50" : "bg-gray-100"}`}
+      >
         <div className="max-w-7xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 40 }}
@@ -1100,7 +1158,10 @@ export default function ERPDevelopment() {
             viewport={{ once: true }}
             className={`text-4xl md:text-5xl font-black text-center mb-12 ${isDark ? "text-white" : "text-gray-900"}`}
           >
-            The Process Behind <span className="text-red-600 dark:text-red-500">Smarter Systems</span>
+            The Process Behind{" "}
+            <span className="text-red-600 dark:text-red-500">
+              Smarter Systems
+            </span>
           </motion.h2>
 
           <motion.p
@@ -1109,7 +1170,12 @@ export default function ERPDevelopment() {
             viewport={{ once: true }}
             className={`text-xl text-center mb-12 max-w-5xl mx-auto leading-relaxed ${isDark ? "text-gray-300" : "text-gray-700"}`}
           >
-            At Atla Knots IT Solutions, a leading ERP software development company, we merge proven methodologies with custom frameworks to deliver high-impact ERP solutions. As a custom ERP software development company, our structured approach—from discovery to deployment—ensures seamless, scalable, and secure ERP software development tailored to your unique business needs.
+            At Atla Knots IT Solutions, a leading ERP software development
+            company, we merge proven methodologies with custom frameworks to
+            deliver high-impact ERP solutions. As a custom ERP software
+            development company, our structured approach—from discovery to
+            deployment—ensures seamless, scalable, and secure ERP software
+            development tailored to your unique business needs.
           </motion.p>
 
           <motion.img
@@ -1123,12 +1189,30 @@ export default function ERPDevelopment() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { step: "01 Client Meeting", desc: "We collect essential insights to deliver ERP software tailored to your needs as a trusted ERP software development company and custom ERP software development company." },
-              { step: "02 Designing Phase", desc: "In this ERP software development phase, we design system architecture and documentation as a custom ERP software development company and ERP software development company." },
-              { step: "03 Development Phase", desc: "Our experts begin ERP software development using advanced coding practices, aligning with your goals as a custom ERP software development company and ERP software development company." },
-              { step: "04 Quality Assurance", desc: "In this ERP software development phase, our custom ERP software development company ensures defect-free delivery, maintaining high standards as a leading ERP software development company." },
-              { step: "05 Deployment Phase", desc: "After rigorous testing, our ERP software development company ensures smooth deployment of custom ERP software, delivering excellence as a trusted custom ERP software development company." },
-              { step: "06 Support & Maintenance", desc: "Our ERP software development company ensures optimal performance of custom ERP software through continuous updates, support, and enhancements as a custom ERP software development company." },
+              {
+                step: "01 Client Meeting",
+                desc: "We collect essential insights to deliver ERP software tailored to your needs as a trusted ERP software development company and custom ERP software development company.",
+              },
+              {
+                step: "02 Designing Phase",
+                desc: "In this ERP software development phase, we design system architecture and documentation as a custom ERP software development company and ERP software development company.",
+              },
+              {
+                step: "03 Development Phase",
+                desc: "Our experts begin ERP software development using advanced coding practices, aligning with your goals as a custom ERP software development company and ERP software development company.",
+              },
+              {
+                step: "04 Quality Assurance",
+                desc: "In this ERP software development phase, our custom ERP software development company ensures defect-free delivery, maintaining high standards as a leading ERP software development company.",
+              },
+              {
+                step: "05 Deployment Phase",
+                desc: "After rigorous testing, our ERP software development company ensures smooth deployment of custom ERP software, delivering excellence as a trusted custom ERP software development company.",
+              },
+              {
+                step: "06 Support & Maintenance",
+                desc: "Our ERP software development company ensures optimal performance of custom ERP software through continuous updates, support, and enhancements as a custom ERP software development company.",
+              },
             ].map((phase, idx) => (
               <motion.div
                 key={idx}
@@ -1137,14 +1221,26 @@ export default function ERPDevelopment() {
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.15 }}
                 className={`border border-red-900/40 rounded-2xl p-8 hover:border-red-600/60 transition-all min-h-[280px] ${
-                  isDark 
-                    ? "bg-gradient-to-br from-gray-900 to-black" 
+                  isDark
+                    ? "bg-gradient-to-br from-gray-900 to-black"
                     : "bg-white shadow-md"
                 }`}
               >
-                <div className={`text-5xl font-black text-red-600 dark:text-red-500 mb-6`}>{phase.step.split(" ")[0]}</div>
-                <h3 className={`text-2xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>{phase.step.split(" ").slice(1).join(" ")}</h3>
-                <p className={`text-base leading-relaxed ${isDark ? "text-gray-300" : "text-gray-700"}`}>{phase.desc}</p>
+                <div
+                  className={`text-5xl font-black text-red-600 dark:text-red-500 mb-6`}
+                >
+                  {phase.step.split(" ")[0]}
+                </div>
+                <h3
+                  className={`text-2xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}
+                >
+                  {phase.step.split(" ").slice(1).join(" ")}
+                </h3>
+                <p
+                  className={`text-base leading-relaxed ${isDark ? "text-gray-300" : "text-gray-700"}`}
+                >
+                  {phase.desc}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -1160,7 +1256,8 @@ export default function ERPDevelopment() {
             viewport={{ once: true }}
             className={`text-4xl md:text-5xl font-black text-center mb-12 ${isDark ? "text-white" : "text-gray-900"}`}
           >
-            Industries We Can <span className="text-red-600 dark:text-red-500">Serve</span>
+            Industries We Can{" "}
+            <span className="text-red-600 dark:text-red-500">Serve</span>
           </motion.h2>
 
           <motion.img
@@ -1194,7 +1291,9 @@ export default function ERPDevelopment() {
       </section>
 
       {/* ====================== FAQ SECTION ====================== */}
-      <section className={`py-24 px-4 sm:px-6 lg:px-8 ${isDark ? "bg-black/60" : "bg-gray-100"}`}>
+      <section
+        className={`py-24 px-4 sm:px-6 lg:px-8 ${isDark ? "bg-black/60" : "bg-gray-100"}`}
+      >
         <div className="max-w-5xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 40 }}
@@ -1238,8 +1337,16 @@ export default function ERPDevelopment() {
                   isDark ? "bg-gray-900/70" : "bg-white shadow"
                 }`}
               >
-                <h3 className={`text-2xl font-bold mb-4 text-red-600 dark:text-red-500`}>{faq.q}</h3>
-                <p className={`text-lg leading-relaxed ${isDark ? "text-gray-300" : "text-gray-700"}`}>{faq.a}</p>
+                <h3
+                  className={`text-2xl font-bold mb-4 text-red-600 dark:text-red-500`}
+                >
+                  {faq.q}
+                </h3>
+                <p
+                  className={`text-lg leading-relaxed ${isDark ? "text-gray-300" : "text-gray-700"}`}
+                >
+                  {faq.a}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -1250,7 +1357,9 @@ export default function ERPDevelopment() {
       <button
         onClick={scrollToTop}
         className={`fixed bottom-6 right-6 z-50 p-4 rounded-full bg-red-600 hover:bg-red-700 text-white shadow-lg shadow-red-900/50 transition-all duration-300 hover:scale-110 active:scale-95 ${
-          showScrollTop ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16 pointer-events-none"
+          showScrollTop
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-16 pointer-events-none"
         }`}
         aria-label="Scroll back to top"
       >
@@ -1261,7 +1370,12 @@ export default function ERPDevelopment() {
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M5 10l7-7m0 0l7 7m-7-7v18"
+          />
         </svg>
       </button>
     </div>
