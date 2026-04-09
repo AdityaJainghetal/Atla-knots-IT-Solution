@@ -303,7 +303,7 @@
 //   );
 // }
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { Menu, X, ChevronDown, Sun, Moon } from "lucide-react";
 import ATLAknots from "./Mobile/img/ITLogo.png";
@@ -379,6 +379,18 @@ export default function Navbar() {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [openSubDropdown, setOpenSubDropdown] = useState(null);
   const { isDark, toggleTheme } = useTheme();
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const timerId = setTimeout(() => {
+      setIsOpen(false);
+      setOpenDropdown(null);
+      setOpenSubDropdown(null);
+    }, 5000);
+
+    return () => clearTimeout(timerId);
+  }, [isOpen]);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
