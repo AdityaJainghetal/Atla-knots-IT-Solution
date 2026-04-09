@@ -845,6 +845,8 @@ const images = {
   industry: industury,
 };
 
+
+
 const industries = [
   "Advertising and Media",
   "Construction & Builders",
