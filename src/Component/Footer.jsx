@@ -11,6 +11,8 @@ import {
 } from "lucide-react";
 
 import ATLAknots from "./Mobile/img/ITLogo.png";
+import ATLAknots2 from "../../src/assets/Images/logoimage2.PNG";
+
 import { useTheme } from "../context/ThemeContext";
 
 // ✅ Social Media Links Component
@@ -86,7 +88,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-1">
             <img
-              src={ATLAknots}
+              src={isDark ? ATLAknots : ATLAknots2}
               alt="ATLAKnots Logo"
               className="h-12 w-[200px] md:h-16 md:w-[260px] lg:h-20 lg:w-[320px] mt-2 object-contain"
             />

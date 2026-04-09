@@ -599,8 +599,7 @@ export default function LocalMarketing() {
             </button>
           </div>
         </motion.section>
-
-        {/* Industries */}
+        {/* Industries */}  
         <motion.section initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
           <h2 className={`text-5xl font-black text-center mb-12 ${headingClass}`}>
             Industries We Serve

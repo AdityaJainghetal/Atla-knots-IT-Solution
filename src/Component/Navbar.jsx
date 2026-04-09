@@ -307,6 +307,8 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Menu, X, ChevronDown, Sun, Moon } from "lucide-react";
 import ATLAknots from "./Mobile/img/ITLogo.png";
+import ATLAknots2 from "../../src/assets/Images/logoimage2.PNG";
+
 import { useTheme } from "../context/ThemeContext.jsx";
 
 const navItems = [
@@ -402,7 +404,7 @@ export default function Navbar() {
           {/* LOGO */}
           <NavLink to="/" onClick={closeAll}>
             <img
-              src={ATLAknots}
+              src={isDark ? ATLAknots : ATLAknots2}
               alt="ATLAKnots Logo"
               className="h-12 w-auto md:h-12 lg:h-18 object-contain"
             />
