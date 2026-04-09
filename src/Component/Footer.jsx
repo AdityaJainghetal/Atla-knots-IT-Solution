@@ -11,16 +11,17 @@ import {
 } from "lucide-react";
 
 import ATLAknots from "./Mobile/img/ITLogo.png";
+import { useTheme } from "../context/ThemeContext";
 
 // ✅ Social Media Links Component
-function SocialLink({ href, icon, label }) {
+function SocialLink({ href, icon, label, isDark }) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="text-gray-400 hover:text-red-500 transition-all hover:scale-110 duration-300 cursor-pointer inline-flex items-center justify-center w-10 h-10 rounded-lg hover:bg-red-500/10 border border-transparent hover:border-red-500/20"
+      className={`transition-all hover:scale-110 duration-300 cursor-pointer inline-flex items-center justify-center w-10 h-10 rounded-lg border border-transparent hover:border-red-500/20 ${isDark ? "text-gray-400 hover:text-red-500 hover:bg-red-500/10" : "text-gray-500 hover:text-red-500 hover:bg-red-50"}`}
     >
       {icon}
     </a>
@@ -28,6 +29,7 @@ function SocialLink({ href, icon, label }) {
 }
 
 const Footer = () => {
+  const { isDark } = useTheme();
   const currentYear = new Date().getFullYear();
   const location = useLocation();
 
@@ -76,7 +78,9 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gradient-to-b from-black to-zinc-950 border-t border-red-900/30 text-gray-400">
+    <footer
+      className={`border-t text-gray-400 ${isDark ? "bg-gradient-to-b from-black to-zinc-950 border-red-900/30" : "bg-gradient-to-b from-gray-50 to-white border-gray-200"}`}
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 items-start">
           {/* Brand */}
@@ -92,28 +96,34 @@ const Footer = () => {
                 href="https://www.facebook.com/atlaknots"
                 icon={<Facebook size={22} />}
                 label="Facebook"
+                isDark={isDark}
               />
               <SocialLink
                 href="https://twitter.com/atlaknots"
                 icon={<Twitter size={22} />}
                 label="Twitter"
+                isDark={isDark}
               />
               <SocialLink
                 href="https://www.linkedin.com/company/atlaknots"
                 icon={<Linkedin size={22} />}
                 label="LinkedIn"
+                isDark={isDark}
               />
               <SocialLink
                 href="https://www.instagram.com/atlaknots"
                 icon={<Instagram size={22} />}
                 label="Instagram"
+                isDark={isDark}
               />
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-widest">
+            <h4
+              className={`font-semibold mb-4 text-sm uppercase tracking-widest ${isDark ? "text-white" : "text-gray-900"}`}
+            >
               Quick Links
             </h4>
             <ul className="space-y-2.5 text-sm">
@@ -122,7 +132,7 @@ const Footer = () => {
                   <Link
                     to={item.path}
                     onClick={(e) => handleFooterLink(e, item.path)}
-                    className="text-gray-400 hover:text-red-400 transition-all hover:translate-x-1 inline-block duration-200"
+                    className={`transition-all hover:translate-x-1 inline-block duration-200 ${isDark ? "text-gray-400 hover:text-red-400" : "text-gray-600 hover:text-red-500"}`}
                   >
                     {item.name}
                   </Link>
@@ -133,13 +143,17 @@ const Footer = () => {
 
           {/* Services */}
           <div className="lg:col-span-2">
-            <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-widest">
+            <h4
+              className={`font-semibold mb-4 text-sm uppercase tracking-widest ${isDark ? "text-white" : "text-gray-900"}`}
+            >
               Our Services
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-8">
               {services.map((group) => (
                 <div key={group.category}>
-                  <h5 className="text-red-400 font-medium text-xs uppercase tracking-widest mb-3">
+                  <h5
+                    className={`font-medium text-xs uppercase tracking-widest mb-3 ${isDark ? "text-red-400" : "text-red-600"}`}
+                  >
                     {group.category}
                   </h5>
                   <ul className="space-y-2.5 text-sm">
@@ -148,7 +162,7 @@ const Footer = () => {
                         <Link
                           to={service.path}
                           onClick={(e) => handleFooterLink(e, service.path)}
-                          className="text-gray-300 hover:text-white transition-all hover:translate-x-1 inline-block duration-200"
+                          className={`transition-all hover:translate-x-1 inline-block duration-200 ${isDark ? "text-gray-300 hover:text-white" : "text-gray-700 hover:text-red-600"}`}
                         >
                           {service.name}
                         </Link>
@@ -162,20 +176,24 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-widest">
+            <h4
+              className={`font-semibold mb-4 text-sm uppercase tracking-widest ${isDark ? "text-white" : "text-gray-900"}`}
+            >
               Contact Us
             </h4>
             <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-red-500 mt-0.5 shrink-0" />
-                <span>Bhopal, Madhya Pradesh, India</span>
+                <span className={isDark ? "text-gray-300" : "text-gray-700"}>
+                  Bhopal, Madhya Pradesh, India
+                </span>
               </li>
 
               <li className="flex items-center gap-3">
                 <Phone size={18} className="text-red-500 shrink-0" />
                 <a
                   href="tel:+917869636070"
-                  className="hover:text-red-400 transition-colors"
+                  className={`transition-colors ${isDark ? "hover:text-red-400" : "hover:text-red-500"}`}
                 >
                   +91 78696 36070
                 </a>
@@ -185,7 +203,7 @@ const Footer = () => {
                 <Mail size={18} className="text-red-500 shrink-0" />
                 <a
                   href="mailto:support@atlaknots.com"
-                  className="hover:text-red-400 transition-colors break-all"
+                  className={`transition-colors break-all ${isDark ? "hover:text-red-400" : "hover:text-red-500"}`}
                 >
                   support@atlaknots.com
                 </a>
@@ -196,29 +214,33 @@ const Footer = () => {
       </div>
 
       {/* Bottom */}
-      <div className="border-t border-red-900/20 py-6 text-center text-xs text-gray-500">
+      <div
+        className={`border-t py-6 text-center text-xs ${isDark ? "border-red-900/20 text-gray-500" : "border-gray-200 text-gray-500"}`}
+      >
         <div className="max-w-7xl mx-auto px-5 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p>© {currentYear} ATLA Knots IT Solutions. All rights reserved.</p>
+          <p className={isDark ? "text-gray-500" : "text-gray-600"}>
+            © {currentYear} ATLA Knots IT Solutions. All rights reserved.
+          </p>
 
           <div className="flex flex-wrap gap-6 justify-center">
             <Link
               to="/privacypolicy"
               onClick={(e) => handleFooterLink(e, "/privacypolicy")}
-              className="hover:text-red-400 transition-colors"
+              className={`transition-colors ${isDark ? "hover:text-red-400" : "hover:text-red-500"}`}
             >
               Privacy Policy
             </Link>
             <Link
               to="/termsofservice"
               onClick={(e) => handleFooterLink(e, "/termsofservice")}
-              className="hover:text-red-400 transition-colors"
+              className={`transition-colors ${isDark ? "hover:text-red-400" : "hover:text-red-500"}`}
             >
               Terms of Service
             </Link>
             <Link
               to="/cookiepolicy"
               onClick={(e) => handleFooterLink(e, "/cookiepolicy")}
-              className="hover:text-red-400 transition-colors"
+              className={`transition-colors ${isDark ? "hover:text-red-400" : "hover:text-red-500"}`}
             >
               Cookie Policy
             </Link>

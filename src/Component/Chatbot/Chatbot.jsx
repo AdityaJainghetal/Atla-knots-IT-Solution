@@ -1,12 +1,17 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, X, Send } from "lucide-react";
+import { useTheme } from "../../context/ThemeContext";
 
 const Chatbot = () => {
+  const { isDark } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [messages, setMessages] = useState([
-    { type: "bot", text: "Hi! I'm Atlas, your AI assistant at Atla Knots IT Solutions. How can I help you today?" }
+    {
+      type: "bot",
+      text: "Hi! I'm Atlas, your AI assistant at Atla Knots IT Solutions. How can I help you today?",
+    },
   ]);
   const [input, setInput] = useState("");
   const chatRef = useRef(null);
@@ -15,7 +20,7 @@ const Chatbot = () => {
     "Tell me about your services",
     "How can you help my business?",
     "What is your pricing?",
-    "Contact support"
+    "Contact support",
   ];
 
   // Scroll to Top visibility
@@ -38,25 +43,37 @@ const Chatbot = () => {
   const sendMessage = (text = input) => {
     if (!text.trim()) return;
 
-    setMessages(prev => [...prev, { type: "user", text }]);
+    setMessages((prev) => [...prev, { type: "user", text }]);
     setInput("");
 
     setTimeout(() => {
-      let reply = "Thanks for reaching out! Our team will get back to you shortly.";
+      let reply =
+        "Thanks for reaching out! Our team will get back to you shortly.";
 
       const lowerText = text.toLowerCase();
 
       if (lowerText.includes("service") || lowerText.includes("offer")) {
-        reply = "We offer Web & Mobile Development, Testing, L2 Support, Voice/Chat/Email BPO, Cataloguing, Quality Assurance, and complete Infrastructure Setup.";
+        reply =
+          "We offer Web & Mobile Development, Testing, L2 Support, Voice/Chat/Email BPO, Cataloguing, Quality Assurance, and complete Infrastructure Setup.";
       } else if (lowerText.includes("help") || lowerText.includes("business")) {
-        reply = "We help businesses with cost-effective IT solutions, digital transformation, and scalable BPO services.";
-      } else if (lowerText.includes("price") || lowerText.includes("cost") || lowerText.includes("pricing")) {
-        reply = "Our pricing is flexible and project-based. Would you like a free consultation?";
-      } else if (lowerText.includes("contact") || lowerText.includes("support")) {
-        reply = "You can email us at support@atlaknots.com or call our 24×7 support team.";
+        reply =
+          "We help businesses with cost-effective IT solutions, digital transformation, and scalable BPO services.";
+      } else if (
+        lowerText.includes("price") ||
+        lowerText.includes("cost") ||
+        lowerText.includes("pricing")
+      ) {
+        reply =
+          "Our pricing is flexible and project-based. Would you like a free consultation?";
+      } else if (
+        lowerText.includes("contact") ||
+        lowerText.includes("support")
+      ) {
+        reply =
+          "You can email us at support@atlaknots.com or call our 24×7 support team.";
       }
 
-      setMessages(prev => [...prev, { type: "bot", text: reply }]);
+      setMessages((prev) => [...prev, { type: "bot", text: reply }]);
     }, 700);
   };
 
@@ -73,7 +90,9 @@ const Chatbot = () => {
       <button
         onClick={scrollToTop}
         className={`fixed bottom-8 right-8 z-[90] p-4 rounded-full bg-red-600 hover:bg-red-700 text-white shadow-lg shadow-red-900/40 transition-all duration-300 ${
-          showScrollTop ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16 pointer-events-none"
+          showScrollTop
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-16 pointer-events-none"
         }`}
         aria-label="Scroll back to top"
       >
@@ -110,7 +129,7 @@ const Chatbot = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 100, scale: 0.95 }}
             transition={{ duration: 0.3 }}
-            className="fixed bottom-24 right-8 z-[110] w-full max-w-[380px] bg-gray-950 border border-red-900/50 rounded-3xl shadow-2xl overflow-hidden"
+            className={`fixed bottom-24 right-8 z-[110] w-full max-w-[380px] border rounded-3xl shadow-2xl overflow-hidden ${isDark ? "bg-gray-950 border-red-900/50" : "bg-white border-gray-200"}`}
           >
             {/* Header */}
             <div className="bg-red-600 p-4 flex items-center justify-between">
@@ -134,7 +153,7 @@ const Chatbot = () => {
             {/* Messages Area - Reduced Height */}
             <div
               ref={chatRef}
-              className="h-80 overflow-y-auto p-4 space-y-4 bg-black/60"   // ← Height reduced here
+              className={`h-80 overflow-y-auto p-4 space-y-4 ${isDark ? "bg-black/60" : "bg-gray-50"}`} // ← Height reduced here
             >
               {messages.map((msg, idx) => (
                 <div
@@ -145,7 +164,9 @@ const Chatbot = () => {
                     className={`max-w-[85%] px-4 py-3 rounded-2xl text-sm leading-relaxed ${
                       msg.type === "user"
                         ? "bg-red-600 text-white"
-                        : "bg-gray-900 text-gray-200 border border-gray-800"
+                        : isDark
+                          ? "bg-gray-900 text-gray-200 border border-gray-800"
+                          : "bg-gray-100 text-gray-800 border border-gray-200"
                     }`}
                   >
                     {msg.text}
@@ -155,12 +176,14 @@ const Chatbot = () => {
             </div>
 
             {/* Quick Replies */}
-            <div className="p-3 border-t border-gray-800 flex flex-wrap gap-2 bg-gray-950">
+            <div
+              className={`p-3 border-t flex flex-wrap gap-2 ${isDark ? "border-gray-800 bg-gray-950" : "border-gray-200 bg-white"}`}
+            >
               {quickReplies.map((reply, idx) => (
                 <button
                   key={idx}
                   onClick={() => sendMessage(reply)}
-                  className="text-xs px-4 py-2 bg-gray-900 hover:bg-red-950 border border-gray-700 rounded-full transition-all"
+                  className={`text-xs px-4 py-2 rounded-full transition-all ${isDark ? "bg-gray-900 hover:bg-red-950 border border-gray-700" : "bg-gray-100 hover:bg-red-50 border border-gray-300"}`}
                 >
                   {reply}
                 </button>
@@ -168,14 +191,16 @@ const Chatbot = () => {
             </div>
 
             {/* Input Area */}
-            <div className="p-4 border-t border-gray-800 bg-gray-950 flex gap-2">
+            <div
+              className={`p-4 border-t flex gap-2 ${isDark ? "border-gray-800 bg-gray-950" : "border-gray-200 bg-white"}`}
+            >
               <input
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyPress={(e) => e.key === "Enter" && sendMessage()}
                 placeholder="Type your message..."
-                className="flex-1 bg-gray-900 border border-gray-700 focus:border-red-600 rounded-full px-5 py-3 text-sm focus:outline-none"
+                className={`flex-1 rounded-full px-5 py-3 text-sm focus:outline-none ${isDark ? "bg-gray-900 border border-gray-700 focus:border-red-600" : "bg-gray-100 border border-gray-300 focus:border-red-500"}`}
               />
               <button
                 onClick={() => sendMessage()}
@@ -193,8 +218,6 @@ const Chatbot = () => {
 };
 
 export default Chatbot;
-
-
 
 // import React, { useState, useRef, useEffect } from "react";
 // import { motion, AnimatePresence } from "framer-motion";

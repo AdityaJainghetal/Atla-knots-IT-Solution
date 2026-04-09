@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import DOMPurify from "dompurify";
+import { useTheme } from "../../context/ThemeContext";
 
 import {
   fetchCategories,
@@ -13,6 +14,7 @@ const POSTS_PER_PAGE = 6;
 
 const Blog = () => {
   const dispatch = useDispatch();
+  const { isDark } = useTheme();
 
   const {
     categories,
@@ -81,7 +83,9 @@ const Blog = () => {
 
   if (status === "loading") {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center text-white">
+      <div
+        className={`min-h-screen ${isDark ? "bg-black" : "bg-white"} flex items-center justify-center ${isDark ? "text-white" : "text-gray-900"}`}
+      >
         <div className="text-2xl animate-pulse">Loading content...</div>
       </div>
     );
@@ -89,7 +93,9 @@ const Blog = () => {
 
   if (status === "failed") {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center text-red-400">
+      <div
+        className={`min-h-screen ${isDark ? "bg-black" : "bg-white"} flex items-center justify-center ${isDark ? "text-red-400" : "text-red-600"}`}
+      >
         <div className="text-xl text-center">
           {error || "Something went wrong"}
         </div>
@@ -98,8 +104,12 @@ const Blog = () => {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white font-sans">
-      <header className="border-b border-gray-800 sticky top-0 z-10 bg-black/80 backdrop-blur-md">
+    <div
+      className={`min-h-screen ${isDark ? "bg-black" : "bg-white"} ${isDark ? "text-white" : "text-gray-900"} font-sans`}
+    >
+      <header
+        className={`border-b ${isDark ? "border-gray-800" : "border-gray-200"} sticky top-0 z-10 ${isDark ? "bg-black/80" : "bg-white/80"} backdrop-blur-md`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-wrap gap-3 justify-center md:justify-start">
             {categories.map((cat) => (
@@ -111,7 +121,7 @@ const Blog = () => {
                   ${
                     activeCategory === cat
                       ? "bg-red-900/40 border-red-600 text-red-300 shadow-[0_0_20px_rgba(220,38,38,0.3)]"
-                      : "bg-gray-900/80 border-gray-700 text-gray-300 hover:bg-gray-800 hover:border-red-600/50 hover:text-white"
+                      : `${isDark ? "bg-gray-900/80 border-gray-700 text-gray-300 hover:bg-gray-800" : "bg-gray-100/80 border-gray-300 text-gray-700 hover:bg-gray-200"} hover:border-red-600/50 hover:text-red-600`
                   }
                 `}
               >
@@ -124,7 +134,9 @@ const Blog = () => {
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {filteredPosts.length === 0 ? (
-          <div className="text-center py-24 text-gray-400 text-2xl">
+          <div
+            className={`text-center py-24 ${isDark ? "text-gray-400" : "text-gray-600"} text-2xl`}
+          >
             No posts found in{" "}
             <span className="text-red-400">"{activeCategory}"</span>
           </div>
@@ -142,7 +154,7 @@ const Blog = () => {
                   <Link
                     to={`/blog/${post._id}`}
                     key={post._id}
-                    className={`group bg-gray-900/70 border border-gray-800 rounded-2xl overflow-hidden 
+                    className={`group ${isDark ? "bg-gray-900/70 border-gray-800" : "bg-white border-gray-200"} rounded-2xl overflow-hidden 
                       hover:border-red-600/60 transition-all duration-500 
                       hover:shadow-[0_0_30px_rgba(220,38,38,0.15)] 
                       animate-fade-in block flex flex-col h-full`}
@@ -156,14 +168,18 @@ const Blog = () => {
                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                       ) : (
-                        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-black flex items-center justify-center text-gray-600">
+                        <div
+                          className={`absolute inset-0 ${isDark ? "bg-gradient-to-br from-gray-900 to-black" : "bg-gradient-to-br from-gray-100 to-white"} flex items-center justify-center ${isDark ? "text-gray-600" : "text-gray-400"}`}
+                        >
                           No Image
                         </div>
                       )}
                     </div>
 
                     <div className="p-6 flex flex-col flex-grow">
-                      <span className="inline-block px-3 py-1 mb-3 text-xs bg-gray-800/80 rounded-full text-gray-300 w-fit">
+                      <span
+                        className={`inline-block px-3 py-1 mb-3 text-xs ${isDark ? "bg-gray-800/80 text-gray-300" : "bg-gray-200/80 text-gray-700"} rounded-full w-fit`}
+                      >
                         {post.category?.name || "Uncategorized"}
                       </span>
 
@@ -171,15 +187,19 @@ const Blog = () => {
                         {post.title || post.name || "Untitled"}
                       </h2>
 
-                      <p className="text-sm text-gray-400 mb-3">
+                      <p
+                        className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"} mb-3`}
+                      >
                         By{" "}
-                        <span className="text-gray-200">
+                        <span
+                          className={`${isDark ? "text-gray-200" : "text-gray-800"}`}
+                        >
                           {post.author || "Anonymous"}
                         </span>
                       </p>
 
                       <div
-                        className="text-gray-400 line-clamp-3 mb-6 prose prose-invert prose-sm flex-grow"
+                        className={`${isDark ? "text-gray-400" : "text-gray-600"} line-clamp-3 mb-6 prose prose-invert prose-sm flex-grow`}
                         dangerouslySetInnerHTML={{
                           __html: sanitizedDescription,
                         }}
@@ -219,8 +239,8 @@ const Blog = () => {
                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200
                       ${
                         currentPage === 1
-                          ? "bg-gray-800/50 text-gray-500 cursor-not-allowed"
-                          : "bg-gray-800 hover:bg-gray-700 text-gray-200 border border-gray-700 hover:border-red-600/50"
+                          ? `${isDark ? "bg-gray-800/50 text-gray-500" : "bg-gray-200/50 text-gray-400"} cursor-not-allowed`
+                          : `${isDark ? "bg-gray-800 hover:bg-gray-700 text-gray-200 border-gray-700" : "bg-gray-100 hover:bg-gray-200 text-gray-800 border-gray-300"} border hover:border-red-600/50`
                       }`}
                   >
                     ← Previous
@@ -234,10 +254,10 @@ const Blog = () => {
                       className={`min-w-[2.5rem] h-10 flex items-center justify-center rounded-lg text-sm font-medium transition-all duration-200
                         ${
                           page === "..."
-                            ? "text-gray-500 cursor-default"
+                            ? `${isDark ? "text-gray-500" : "text-gray-400"} cursor-default`
                             : page === currentPage
                               ? "bg-red-900/60 border border-red-600 text-red-200 shadow-[0_0_15px_rgba(220,38,38,0.25)]"
-                              : "bg-gray-800 hover:bg-gray-700 text-gray-200 border border-gray-700 hover:border-red-600/50"
+                              : `${isDark ? "bg-gray-800 hover:bg-gray-700 text-gray-200 border-gray-700" : "bg-gray-100 hover:bg-gray-200 text-gray-800 border-gray-300"} hover:border-red-600/50`
                         }`}
                     >
                       {page}
@@ -250,15 +270,17 @@ const Blog = () => {
                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200
                       ${
                         currentPage === totalPages
-                          ? "bg-gray-800/50 text-gray-500 cursor-not-allowed"
-                          : "bg-gray-800 hover:bg-gray-700 text-gray-200 border border-gray-700 hover:border-red-600/50"
+                          ? `${isDark ? "bg-gray-800/50 text-gray-500" : "bg-gray-200/50 text-gray-400"} cursor-not-allowed`
+                          : `${isDark ? "bg-gray-800 hover:bg-gray-700 text-gray-200 border-gray-700" : "bg-gray-100 hover:bg-gray-200 text-gray-800 border-gray-300"} border hover:border-red-600/50`
                       }`}
                   >
                     Next →
                   </button>
                 </nav>
 
-                <div className="text-sm text-gray-500">
+                <div
+                  className={`text-sm ${isDark ? "text-gray-500" : "text-gray-400"}`}
+                >
                   Page {currentPage} of {totalPages} • {totalPosts} posts
                 </div>
               </div>

@@ -2382,7 +2382,8 @@
 //   );
 // }
 
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useTheme } from "../context/ThemeContext";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -2409,21 +2410,7 @@ const staggerContainer = {
 };
 
 export default function Home() {
-  const [isDark, setIsDark] = useState(() =>
-    document.documentElement.classList.contains("dark"),
-  );
-
-  // Dark mode observer
-  useEffect(() => {
-    const observer = new MutationObserver(() => {
-      setIsDark(document.documentElement.classList.contains("dark"));
-    });
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-    return () => observer.disconnect();
-  }, []);
+  const { isDark } = useTheme();
 
   // Reusable class helpers - RED THEME
   const cardClass = isDark
