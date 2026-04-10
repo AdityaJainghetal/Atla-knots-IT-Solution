@@ -93,6 +93,7 @@ const Footer = () => {
               className="h-12 w-[200px] md:h-16 md:w-[260px] lg:h-20 lg:w-[320px] mt-2 object-contain"
             />
 
+
             <div className="flex gap-6 mt-8">
               <SocialLink
                 href="https://www.facebook.com/atlaknots"
