@@ -2544,7 +2544,7 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
-            className={`text-xl text-center mb-16 max-w-3xl mx-auto ${bodyClass}`}
+            className={`text-xl text-center mb-16 max-w-3xl mx-auto ${bodyClass} `}
           >
             Comprehensive IT &amp; BPO solutions — from development to support
             and infrastructure
