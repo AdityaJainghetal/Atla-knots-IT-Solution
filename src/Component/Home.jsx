@@ -2423,6 +2423,10 @@ export default function Home() {
   const sectionHeadingAccent = "text-red-500";
 
   return (
+
+    
+
+
     <div
       className={`min-h-screen overflow-x-hidden transition-colors duration-700
       ${isDark ? "bg-black text-white" : "bg-white text-gray-900"}`}
