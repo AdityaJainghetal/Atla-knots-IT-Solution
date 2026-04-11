@@ -2235,6 +2235,12 @@ import {
   submitContactForm,
 } from "./Redux/contact/contactSlice.js";
 
+import background from  "../assets/Images/backgroundimage1.jpeg";
+import background2 from  "../assets/Images/backgroundimage2.jpeg";
+
+import background3 from  "../assets/Images/backgroundimage3.jpeg";
+
+
 // React Router for navigation
 import { useNavigate } from "react-router-dom";
 
@@ -2251,19 +2257,19 @@ const staggerContainer = {
 // Hero Slider Data
 const HERO_SLIDES = [
   {
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2070",
+    image: background,
     title: "Global IT Services",
     subtitle: "End-to-end digital transformation, product engineering, and cloud delivery for growing brands",
     cta: "Discover ATLA",
   },
   {
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2070",
+    image: background2,
     title: "Marketing & Growth",
     subtitle: "Performance marketing, SEO, and brand campaigns designed to convert and scale",
     cta: "Grow with ATLA",
   },
   {
-    image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2070",
+    image: background3,
     title: "Creative Product Design",
     subtitle: "UX-driven web and mobile experiences that engage users and accelerate adoption",
     cta: "See Solutions",
