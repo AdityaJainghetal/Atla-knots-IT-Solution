@@ -44,13 +44,13 @@ import PrivacyPolicy from "./Component/PrivacyPolicy/PrivacyPolicy";
 import CookiePolicy from "./Component/CookiePolicy/CookiePolicy";
 import TermsOfService from "./Component/TermsOfService/TermsOfService";
 import ScrollToTop from "./Component/ScrollToTop/ScrollToTop";
+import Portfolio from "./Component/Portfolio/Portfolio";
 // import ScrollToTop from "./Component/ScrollToTop";
 
 const App = () => {
   return (
     <HelmetProvider>
       <BrowserRouter>
-       
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -110,6 +110,8 @@ const App = () => {
             <Route path="cookiepolicy" element={<CookiePolicy />} />
 
             <Route path="termsofservice" element={<TermsOfService />} />
+
+            <Route path="/portfolio" element={<Portfolio />} />
           </Route>
         </Routes>
       </BrowserRouter>
