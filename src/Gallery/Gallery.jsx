@@ -8,7 +8,7 @@
 //   useEffect(() => {
 //     const fetchImages = async () => {
 //       try {
-//         const response = await fetch("http://localhost:8000/api/gallery");
+//         const response = await fetch("https://atla-knots-admin-1.onrender.com/api/gallery");
 
 //         if (!response.ok) {
 //           throw new Error(`HTTP error! status: ${response.status}`);
@@ -72,7 +72,7 @@
 //                 src={
 //                   src.startsWith("http")
 //                     ? `${src}?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80`
-//                     : `http://localhost:8000${src}?auto=format&fit=crop&w=800&q=80`
+//                     : `https://atla-knots-admin-1.onrender.com${src}?auto=format&fit=crop&w=800&q=80`
 //                 }
 //                 alt={`Gallery image ${index + 1}`}
 //                 className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
@@ -98,12 +98,11 @@
 
 // export default Gallery;
 
-
 import React, { useState, useEffect } from "react";
 import { useTheme } from "../context/ThemeContext";
 
 const Gallery = () => {
-  const { isDark } = useTheme();   // ← Theme Hook Added
+  const { isDark } = useTheme(); // ← Theme Hook Added
 
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -122,7 +121,9 @@ const Gallery = () => {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await fetch("http://localhost:8000/api/gallery");
+        const response = await fetch(
+          "https://atla-knots-admin-1.onrender.com/api/gallery",
+        );
 
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -136,8 +137,8 @@ const Gallery = () => {
 
         // Extract all image URLs from the nested "images" arrays
         const allImageUrls = result.data
-          .flatMap((item) => item.images || []) 
-          .filter((url) => typeof url === "string" && url.trim() !== ""); 
+          .flatMap((item) => item.images || [])
+          .filter((url) => typeof url === "string" && url.trim() !== "");
 
         setImages(allImageUrls);
       } catch (err) {
@@ -160,8 +161,10 @@ const Gallery = () => {
 
   if (loading) {
     return (
-      <div className={`min-h-screen flex items-center justify-center transition-colors duration-700
-        ${isDark ? "bg-black text-white" : "bg-gray-50 text-gray-900"}`}>
+      <div
+        className={`min-h-screen flex items-center justify-center transition-colors duration-700
+        ${isDark ? "bg-black text-white" : "bg-gray-50 text-gray-900"}`}
+      >
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-red-600 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
           <p className={`text-2xl ${bodyClass}`}>Loading gallery...</p>
@@ -171,11 +174,14 @@ const Gallery = () => {
   }
 
   return (
-    <div className={`min-h-screen px-4 py-12 md:px-8 transition-colors duration-700
-      ${isDark ? "bg-black text-white" : "bg-gray-50 text-gray-900"}`}>
-
+    <div
+      className={`min-h-screen px-4 py-12 md:px-8 transition-colors duration-700
+      ${isDark ? "bg-black text-white" : "bg-gray-50 text-gray-900"}`}
+    >
       <div className="max-w-7xl mx-auto">
-        <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-10 md:mb-16 tracking-tight ${accentClass}`}>
+        <h1
+          className={`text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-10 md:mb-16 tracking-tight ${accentClass}`}
+        >
           My Photo Gallery
         </h1>
 
@@ -196,7 +202,7 @@ const Gallery = () => {
                 src={
                   src.startsWith("http")
                     ? `${src}?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80`
-                    : `http://localhost:8000${src}?auto=format&fit=crop&w=800&q=80`
+                    : `https://atla-knots-admin-1.onrender.com${src}?auto=format&fit=crop&w=800&q=80`
                 }
                 alt={`Gallery image ${index + 1}`}
                 className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
@@ -207,8 +213,10 @@ const Gallery = () => {
                 }}
               />
 
-              <div className={`absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end
-                ${isDark ? "" : "from-black/60"}`}>
+              <div
+                className={`absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end
+                ${isDark ? "" : "from-black/60"}`}
+              >
                 <p className="text-white text-sm p-4 font-medium">
                   Image {index + 1}
                 </p>

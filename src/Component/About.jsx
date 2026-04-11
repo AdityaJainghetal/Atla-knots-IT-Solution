@@ -331,7 +331,7 @@
 // // // //     setSuccess(false);
 
 // // // //     try {
-// // // //       await axios.post("http://localhost:8000/query/create", formData);
+// // // //       await axios.post("https://atla-knots-admin-1.onrender.com/query/create", formData);
 
 // // // //       setSuccess(true);
 // // // //       setFormData({
@@ -1525,7 +1525,7 @@
 // // //     setError("");
 // // //     setSuccess(false);
 // // //     try {
-// // //       await axios.post("http://localhost:8000/query/create", formData);
+// // //       await axios.post("https://atla-knots-admin-1.onrender.com/query/create", formData);
 // // //       setSuccess(true);
 // // //       setFormData({ name: "", email: "", phone: "", message: "", category: "" });
 // // //       setTimeout(() => { setIsModalOpen(false); setSuccess(false); }, 2000);
@@ -2308,7 +2308,7 @@
 // // //     setError("");
 // // //     setSuccess(false);
 // // //     try {
-// // //       await axios.post("http://localhost:8000/query/create", formData);
+// // //       await axios.post("https://atla-knots-admin-1.onrender.com/query/create", formData);
 // // //       setSuccess(true);
 // // //       setFormData({ name: "", email: "", phone: "", message: "", category: "" });
 // // //       setTimeout(() => { setIsModalOpen(false); setSuccess(false); }, 2000);
@@ -3097,7 +3097,7 @@
 // // //     setError("");
 // // //     setSuccess(false);
 // // //     try {
-// // //       await axios.post("http://localhost:8000/query/create", formData);
+// // //       await axios.post("https://atla-knots-admin-1.onrender.com/query/create", formData);
 // // //       setSuccess(true);
 // // //       setFormData({ name: "", email: "", phone: "", message: "", category: "" });
 // // //       setTimeout(() => { setIsModalOpen(false); setSuccess(false); }, 2000);
@@ -3885,7 +3885,7 @@
 // //     setError("");
 // //     setSuccess(false);
 // //     try {
-// //       await axios.post("http://localhost:8000/query/create", formData);
+// //       await axios.post("https://atla-knots-admin-1.onrender.com/query/create", formData);
 // //       setSuccess(true);
 // //       setFormData({ name: "", email: "", phone: "", message: "", category: "" });
 // //       setTimeout(() => { setIsModalOpen(false); setSuccess(false); }, 2000);
@@ -4746,7 +4746,7 @@
 //     setError("");
 //     setSuccess(false);
 //     try {
-//       await axios.post("http://localhost:8000/query/create", formData);
+//       await axios.post("https://atla-knots-admin-1.onrender.com/query/create", formData);
 //       setSuccess(true);
 //       setFormData({
 //         name: "",
@@ -5279,8 +5279,6 @@
 //                   github="https://github.com/aleynabi-atlaknots"
 //                 />
 
-             
-           
 //                 <LeaderCard
 //                   isDark={isDark}
 //                   img={FounderImg}
@@ -5316,8 +5314,6 @@
 //                   github="https://github.com/aleynabi-atlaknots"
 //                 />
 
-
-             
 //               </div>
 //             </div>
 //           </section>
@@ -5460,8 +5456,6 @@
 //     </div>
 //   );
 // }
-
-
 
 import React, {
   useCallback,
@@ -5704,9 +5698,10 @@ const FAQAccordion = ({ isDark }) => {
         <div
           key={index}
           className={`group backdrop-blur-lg border rounded-2xl overflow-hidden shadow-xl transition-all duration-300
-            ${isDark
-              ? "bg-gray-950/75 border-red-900/50 hover:shadow-red-900/40"
-              : "bg-white border-gray-200 hover:shadow-red-200/60 shadow-gray-200"
+            ${
+              isDark
+                ? "bg-gray-950/75 border-red-900/50 hover:shadow-red-900/40"
+                : "bg-white border-gray-200 hover:shadow-red-200/60 shadow-gray-200"
             }`}
         >
           <button
@@ -5716,9 +5711,10 @@ const FAQAccordion = ({ isDark }) => {
           >
             <span
               className={`text-xl md:text-2xl font-semibold transition-colors
-              ${isDark
-                ? "text-white group-hover:text-red-300"
-                : "text-gray-900 group-hover:text-red-600"
+              ${
+                isDark
+                  ? "text-white group-hover:text-red-300"
+                  : "text-gray-900 group-hover:text-red-600"
               }`}
             >
               {faq.question}
@@ -5768,9 +5764,10 @@ const LeaderCard = ({
     variants={scaleIn}
     whileHover={{ scale: 1.05, y: -10 }}
     className={`backdrop-blur-sm border rounded-2xl overflow-hidden shadow-xl transition-all duration-300
-      ${isDark
-        ? "bg-gray-900/60 border-red-900/30 shadow-red-950/30"
-        : "bg-white border-gray-200 shadow-gray-200"
+      ${
+        isDark
+          ? "bg-gray-900/60 border-red-900/30 shadow-red-950/30"
+          : "bg-white border-gray-200 shadow-gray-200"
       }`}
   >
     <div className="relative">
@@ -5778,14 +5775,20 @@ const LeaderCard = ({
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
     </div>
     <div className="p-6 text-center">
-      <h3 className={`text-2xl font-bold mb-1 ${isDark ? "text-white" : "text-gray-900"}`}>
+      <h3
+        className={`text-2xl font-bold mb-1 ${isDark ? "text-white" : "text-gray-900"}`}
+      >
         {name}
       </h3>
       <p className="font-semibold mb-2 text-red-500">{role}</p>
-      <p className={`text-sm mb-3 ${isDark ? "text-gray-400" : "text-gray-500"}`}>
+      <p
+        className={`text-sm mb-3 ${isDark ? "text-gray-400" : "text-gray-500"}`}
+      >
         {exp}
       </p>
-      <p className={`text-sm leading-relaxed ${isDark ? "text-gray-300" : "text-gray-600"}`}>
+      <p
+        className={`text-sm leading-relaxed ${isDark ? "text-gray-300" : "text-gray-600"}`}
+      >
         {desc}
       </p>
       <div className="flex justify-center gap-6 mt-4">
@@ -5834,7 +5837,7 @@ export default function About() {
   useEffect(() => {
     const timer = setInterval(
       () => setActiveTestimonial((prev) => (prev + 1) % 3),
-      5000
+      5000,
     );
     return () => clearInterval(timer);
   }, []);
@@ -5843,7 +5846,7 @@ export default function About() {
   useEffect(() => {
     const interval = setInterval(
       () => setActiveImageIndex((prev) => (prev + 1) % teamImages.length),
-      4800
+      4800,
     );
     return () => clearInterval(interval);
   }, []);
@@ -5861,7 +5864,10 @@ export default function About() {
     setError("");
     setSuccess(false);
     try {
-      await axios.post("http://localhost:8000/query/create", formData);
+      await axios.post(
+        "https://atla-knots-admin-1.onrender.com/query/create",
+        formData,
+      );
       setSuccess(true);
       setFormData({
         name: "",
@@ -5907,7 +5913,9 @@ export default function About() {
     : "bg-gray-100 border-gray-300 text-gray-900 placeholder-gray-400 focus:border-red-500";
 
   return (
-    <div className={`min-h-screen ${bg} ${text} relative overflow-x-hidden transition-colors duration-500`}>
+    <div
+      className={`min-h-screen ${bg} ${text} relative overflow-x-hidden transition-colors duration-500`}
+    >
       {/* Particles — only in dark mode */}
       {isDark && (
         <Particles
@@ -5920,8 +5928,12 @@ export default function About() {
 
       {/* Gradient blobs */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        <div className={`absolute top-20 right-0 w-96 h-96 rounded-full blur-3xl animate-pulse ${isDark ? "bg-red-600/20" : "bg-red-100/60"}`} />
-        <div className={`absolute bottom-40 left-0 w-96 h-96 rounded-full blur-3xl animate-pulse delay-1000 ${isDark ? "bg-red-800/15" : "bg-red-100/40"}`} />
+        <div
+          className={`absolute top-20 right-0 w-96 h-96 rounded-full blur-3xl animate-pulse ${isDark ? "bg-red-600/20" : "bg-red-100/60"}`}
+        />
+        <div
+          className={`absolute bottom-40 left-0 w-96 h-96 rounded-full blur-3xl animate-pulse delay-1000 ${isDark ? "bg-red-800/15" : "bg-red-100/40"}`}
+        />
       </div>
 
       {/* ====================== HERO SECTION WITH BACKGROUND IMAGE ====================== */}
@@ -5935,9 +5947,10 @@ export default function About() {
           />
           <div
             className={`absolute inset-0 transition-all duration-700
-              ${isDark
-                ? "bg-gradient-to-br from-black/85 via-black/75 to-black/90"
-                : "bg-gradient-to-br from-black/60 via-black/50 to-black/40"
+              ${
+                isDark
+                  ? "bg-gradient-to-br from-black/85 via-black/75 to-black/90"
+                  : "bg-gradient-to-br from-black/60 via-black/50 to-black/40"
               }`}
           />
         </div>
@@ -5966,7 +5979,9 @@ export default function About() {
           className="relative z-30 w-full max-w-7xl mx-auto text-center"
         >
           <motion.div variants={fadeInUp} className="mb-10 pt-20 md:pt-24">
-            <h1 className={`text-6xl md:text-7xl lg:text-8xl font-black mb-6 ${text}`}>
+            <h1
+              className={`text-6xl md:text-7xl lg:text-8xl font-black mb-6 ${text}`}
+            >
               ABOUT ATLA KNOTS
             </h1>
             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">
@@ -5987,7 +6002,9 @@ export default function About() {
             className={`text-xl md:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed px-4 ${subText}`}
           >
             We provide complete digital services,{" "}
-            <span className={`font-semibold ${isDark ? "text-red-500" : "text-red-600"}`}>
+            <span
+              className={`font-semibold ${isDark ? "text-red-500" : "text-red-600"}`}
+            >
               including SEO, digital marketing,
             </span>{" "}
             website development, social media management, software development,
@@ -6002,10 +6019,14 @@ export default function About() {
                 className={`w-full md:w-5/12 z-10 flex flex-col justify-center order-2 md:order-1 px-6 md:px-10 lg:px-16 py-12 md:py-16
                 ${isDark ? "bg-gradient-to-r from-gray-900/90 to-transparent" : "bg-gradient-to-r from-white/95 to-transparent"}`}
               >
-                <h3 className={`text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 ${text}`}>
+                <h3
+                  className={`text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 ${text}`}
+                >
                   Building the <span className="text-red-500">Future</span>
                 </h3>
-                <p className={`text-lg md:text-xl leading-relaxed mb-8 max-w-xl ${subText}`}>
+                <p
+                  className={`text-lg md:text-xl leading-relaxed mb-8 max-w-xl ${subText}`}
+                >
                   At we believe technology should empower—not complicate.
                 </p>
                 <button
@@ -6016,7 +6037,11 @@ export default function About() {
                 </button>
               </div>
               <div className="w-full md:w-7/12 self-end order-1 md:order-2">
-                <img src={img4} alt="Collaboration" className="w-full h-full object-cover" />
+                <img
+                  src={img4}
+                  alt="Collaboration"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
 
@@ -6026,10 +6051,15 @@ export default function About() {
                 className={`w-full md:w-5/12 z-10 flex flex-col justify-center px-6 md:px-10 lg:px-16 py-12 md:py-16
                 ${isDark ? "bg-gradient-to-l from-gray-900/90 to-transparent" : "bg-gradient-to-l from-white/95 to-transparent"}`}
               >
-                <h3 className={`text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 ${text}`}>
-                  Innovation Meets <span className="text-red-500">Excellence</span>
+                <h3
+                  className={`text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 ${text}`}
+                >
+                  Innovation Meets{" "}
+                  <span className="text-red-500">Excellence</span>
                 </h3>
-                <p className={`text-lg md:text-xl leading-relaxed mb-8 max-w-xl ${subText}`}>
+                <p
+                  className={`text-lg md:text-xl leading-relaxed mb-8 max-w-xl ${subText}`}
+                >
                   We transform businesses through seamless digital solutions.
                 </p>
               </div>
@@ -6089,7 +6119,9 @@ export default function About() {
                   <div
                     className={`px-6 py-4 flex justify-between items-center ${isDark ? "bg-gradient-to-r from-red-900/80 to-red-800/60" : "bg-gradient-to-r from-red-700 to-red-600"}`}
                   >
-                    <h2 className="text-xl font-bold text-white">Get in Touch</h2>
+                    <h2 className="text-xl font-bold text-white">
+                      Get in Touch
+                    </h2>
                     <button
                       onClick={() => setIsModalOpen(false)}
                       className="text-white hover:text-red-300 transition"
@@ -6102,7 +6134,13 @@ export default function About() {
                     {["name", "email", "phone"].map((field) => (
                       <input
                         key={field}
-                        type={field === "email" ? "email" : field === "phone" ? "tel" : "text"}
+                        type={
+                          field === "email"
+                            ? "email"
+                            : field === "phone"
+                              ? "tel"
+                              : "text"
+                        }
                         name={field}
                         placeholder={`${field.charAt(0).toUpperCase() + field.slice(1)} *`}
                         value={formData[field]}
@@ -6119,11 +6157,17 @@ export default function About() {
                       required
                       className={`w-full px-4 py-3 border rounded-lg focus:outline-none ${inputClass}`}
                     >
-                      <option value="" disabled>Select Category *</option>
+                      <option value="" disabled>
+                        Select Category *
+                      </option>
                       <option value="SEO">SEO</option>
-                      <option value="Software Developer">Software Developer</option>
+                      <option value="Software Developer">
+                        Software Developer
+                      </option>
                       <option value="BPO">BPO</option>
-                      <option value="Digital Marketing">Digital Marketing</option>
+                      <option value="Digital Marketing">
+                        Digital Marketing
+                      </option>
                       <option value="Web Development">Web Development</option>
                       <option value="Other">Other</option>
                     </select>
@@ -6149,8 +6193,14 @@ export default function About() {
                       {loading ? "Sending..." : "Submit Inquiry"}
                     </button>
 
-                    {success && <p className="text-green-500 text-center font-medium">Thank you! We'll get back to you soon.</p>}
-                    {error && <p className="text-red-500 text-center">{error}</p>}
+                    {success && (
+                      <p className="text-green-500 text-center font-medium">
+                        Thank you! We'll get back to you soon.
+                      </p>
+                    )}
+                    {error && (
+                      <p className="text-red-500 text-center">{error}</p>
+                    )}
                   </form>
                 </motion.div>
               </motion.div>
@@ -6160,7 +6210,9 @@ export default function About() {
       </section>
 
       {/* ====================== ABOUT / STATS SECTION ====================== */}
-      <section className={`relative py-16 px-4 sm:px-6 lg:px-8 transition-colors ${isDark ? "bg-black" : "bg-gray-50"}`}>
+      <section
+        className={`relative py-16 px-4 sm:px-6 lg:px-8 transition-colors ${isDark ? "bg-black" : "bg-gray-50"}`}
+      >
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial="hidden"
@@ -6169,13 +6221,18 @@ export default function About() {
             variants={staggerContainer}
             className="text-center mb-12"
           >
-            <p className={`text-xl md:text-2xl max-w-4xl mx-auto px-4 ${subText}`}>
-              Technology that connects. Solutions that deliver. Partnerships that last.
+            <p
+              className={`text-xl md:text-2xl max-w-4xl mx-auto px-4 ${subText}`}
+            >
+              Technology that connects. Solutions that deliver. Partnerships
+              that last.
             </p>
           </motion.div>
 
           {/* 3D decoration */}
-          <div className={`relative h-96 mb-12 rounded-2xl overflow-hidden border ${isDark ? "border-red-900/20" : "border-red-100"}`}>
+          <div
+            className={`relative h-96 mb-12 rounded-2xl overflow-hidden border ${isDark ? "border-red-900/20" : "border-red-100"}`}
+          >
             <Canvas>
               <Suspense fallback={null}>
                 <Scene3D />
@@ -6192,12 +6249,17 @@ export default function About() {
             className="grid md:grid-cols-2 gap-8 items-center mb-12"
           >
             <motion.div variants={fadeInLeft} className="space-y-6">
-              <h5 className="font-semibold text-xl text-red-500">About Our Solution</h5>
-              <h2 className={`text-4xl md:text-5xl font-bold ${text}`}>#1 Partner For Your Business Growth</h2>
+              <h5 className="font-semibold text-xl text-red-500">
+                About Our Solution
+              </h5>
+              <h2 className={`text-4xl md:text-5xl font-bold ${text}`}>
+                #1 Partner For Your Business Growth
+              </h2>
               <p className={`text-lg leading-relaxed ${subText}`}>
-                We deliver cutting-edge technology solutions that transform businesses. 
-                From custom software development to 24/7 BPO support, our team ensures 
-                your digital infrastructure is robust, scalable, and secure.
+                We deliver cutting-edge technology solutions that transform
+                businesses. From custom software development to 24/7 BPO
+                support, our team ensures your digital infrastructure is robust,
+                scalable, and secure.
               </p>
               <div className="grid grid-cols-2 gap-8 my-8">
                 <div>
@@ -6273,28 +6335,43 @@ export default function About() {
                   variants={scaleIn}
                   whileHover={isDark ? { scale: 1.05, y: -8 } : {}}
                   className={`border rounded-2xl p-8 text-center flex flex-col items-center justify-center min-h-[220px] transition-all duration-300
-                    ${isDark
-                      ? "bg-gradient-to-br from-gray-900 to-black border-red-900/30"
-                      : "bg-white border-gray-200 shadow-md"
+                    ${
+                      isDark
+                        ? "bg-gradient-to-br from-gray-900 to-black border-red-900/30"
+                        : "bg-white border-gray-200 shadow-md"
                     }`}
                 >
-                  <item.icon className={`w-14 h-14 mx-auto mb-5 text-red-500`} />
-                  <div className={`text-5xl md:text-6xl lg:text-7xl font-black mb-2 tracking-tight leading-none ${text}`}>
+                  <item.icon
+                    className={`w-14 h-14 mx-auto mb-5 text-red-500`}
+                  />
+                  <div
+                    className={`text-5xl md:text-6xl lg:text-7xl font-black mb-2 tracking-tight leading-none ${text}`}
+                  >
                     {isAnimated ? (
                       <>
                         <Counter value={numericValue} duration={2.6} />
-                        {item.num.includes("+") && <span className="text-red-500">+</span>}
-                        {item.num.includes("%") && <span className="text-red-500">%</span>}
+                        {item.num.includes("+") && (
+                          <span className="text-red-500">+</span>
+                        )}
+                        {item.num.includes("%") && (
+                          <span className="text-red-500">%</span>
+                        )}
                       </>
                     ) : (
                       <span className="flex items-baseline justify-center gap-1">
                         <span>24</span>
-                        <span className="text-6xl font-black text-red-500">/</span>
+                        <span className="text-6xl font-black text-red-500">
+                          /
+                        </span>
                         <span>7</span>
                       </span>
                     )}
                   </div>
-                  <p className={`text-lg md:text-xl font-medium mt-3 ${subText}`}>{item.label}</p>
+                  <p
+                    className={`text-lg md:text-xl font-medium mt-3 ${subText}`}
+                  >
+                    {item.label}
+                  </p>
                 </motion.div>
               );
             })}
@@ -6305,7 +6382,9 @@ export default function About() {
           </div>
 
           {/* ====================== LEADERSHIP SECTION ====================== */}
-          <section className={`relative py-16 px-4 sm:px-6 lg:px-8 transition-colors ${isDark ? "bg-gradient-to-b from-black to-gray-950" : "bg-white"}`}>
+          <section
+            className={`relative py-16 px-4 sm:px-6 lg:px-8 transition-colors ${isDark ? "bg-gradient-to-b from-black to-gray-950" : "bg-white"}`}
+          >
             <div className="max-w-7xl mx-auto">
               <motion.div
                 initial="hidden"
@@ -6317,8 +6396,11 @@ export default function About() {
                 <h2 className={`text-5xl md:text-7xl font-black mb-4 ${text}`}>
                   Meet Our <span className="text-red-500">Leadership</span>
                 </h2>
-                <p className={`text-xl md:text-2xl max-w-3xl mx-auto ${subText}`}>
-                  The visionaries driving ATLA Knots toward innovation and excellence
+                <p
+                  className={`text-xl md:text-2xl max-w-3xl mx-auto ${subText}`}
+                >
+                  The visionaries driving ATLA Knots toward innovation and
+                  excellence
                 </p>
               </motion.div>
 
@@ -6387,12 +6469,20 @@ export default function About() {
                 <h2 className={`text-5xl md:text-6xl font-black mb-4 ${text}`}>
                   Our <span className="text-red-500">Team</span>
                 </h2>
-                <p className={`text-xl md:text-2xl max-w-3xl mx-auto ${subText}`}>
+                <p
+                  className={`text-xl md:text-2xl max-w-3xl mx-auto ${subText}`}
+                >
                   The passionate people behind ATLA Knots' success
                 </p>
               </motion.div>
-              <div className={`rounded-2xl overflow-hidden border shadow-2xl ${isDark ? "border-red-900/30" : "border-gray-200"}`}>
-                <img src={OurTeam} alt="Our Team" className="w-full h-auto max-h-[700px] object-cover" />
+              <div
+                className={`rounded-2xl overflow-hidden border shadow-2xl ${isDark ? "border-red-900/30" : "border-gray-200"}`}
+              >
+                <img
+                  src={OurTeam}
+                  alt="Our Team"
+                  className="w-full h-auto max-h-[700px] object-cover"
+                />
               </div>
             </div>
           </section>
@@ -6417,14 +6507,21 @@ export default function About() {
                   }}
                   transition={{ duration: 0.6 }}
                   className={`absolute inset-0 border rounded-3xl p-10 flex flex-col justify-between
-                    ${isDark
-                      ? "bg-gradient-to-br from-gray-900/90 to-black/90 border-red-900/30"
-                      : "bg-white border-gray-200 shadow-lg"
+                    ${
+                      isDark
+                        ? "bg-gradient-to-br from-gray-900/90 to-black/90 border-red-900/30"
+                        : "bg-white border-gray-200 shadow-lg"
                     }`}
-                  style={{ pointerEvents: idx === activeTestimonial ? "auto" : "none" }}
+                  style={{
+                    pointerEvents: idx === activeTestimonial ? "auto" : "none",
+                  }}
                 >
-                  <div className={`flex gap-1 text-2xl text-red-500`}>{"★".repeat(t.rating)}</div>
-                  <p className={`text-2xl italic ${isDark ? "text-gray-100" : "text-gray-700"}`}>
+                  <div className={`flex gap-1 text-2xl text-red-500`}>
+                    {"★".repeat(t.rating)}
+                  </div>
+                  <p
+                    className={`text-2xl italic ${isDark ? "text-gray-100" : "text-gray-700"}`}
+                  >
                     "{t.text}"
                   </p>
                   <div>
@@ -6474,11 +6571,15 @@ export default function About() {
               variants={staggerContainer}
               className="text-center py-16"
             >
-              <h3 className={`text-5xl md:text-6xl font-black mb-8 px-4 ${text}`}>
-                Ready to build something <span className="text-red-500">great</span> together?
+              <h3
+                className={`text-5xl md:text-6xl font-black mb-8 px-4 ${text}`}
+              >
+                Ready to build something{" "}
+                <span className="text-red-500">great</span> together?
               </h3>
               <p className={`text-xl mb-10 max-w-2xl mx-auto px-4 ${subText}`}>
-                Let's turn your vision into reality. Our team is ready to start today.
+                Let's turn your vision into reality. Our team is ready to start
+                today.
               </p>
               <button
                 onClick={() => setIsModalOpen(true)}
